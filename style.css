@@ -162,6 +162,8 @@ h2 {
 .about {
   display: flex;
   gap: 2rem;
+  padding: 0;
+  padding-top: 2rem;
 }
 
 .desc {
@@ -187,7 +189,7 @@ h2 {
 
 .news {
   text-align: center;
-  padding: 60px 20px;
+  padding: 0;
 }
 
 .cards-container {
@@ -213,6 +215,10 @@ h2 {
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.projects {
+  padding: 0;
 }
 
 .project-grid {
