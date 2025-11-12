@@ -266,6 +266,10 @@ h2 {
   }
 }
 
+.btn {
+  text-decoration: none;
+}
+
 footer {
   text-align: center;
   padding: 1.5rem;
@@ -299,10 +303,6 @@ body.dark-mode .nav-links a {
 
 body.dark-mode .nav-links a:hover {
   color: #74b9ff;
-}
-
-body.dark-mode .btn {
-  background: #0984e3;
 }
 
 body.dark-mode .btn:hover {
