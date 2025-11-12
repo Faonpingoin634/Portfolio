@@ -1,0 +1,313 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", Arial, sans-serif;
+  line-height: 1.6;
+  background: #f5f6fa;
+  color: #2f3640;
+  transition: background 0.3s, color 0.3s;
+}
+
+header {
+  background: linear-gradient(230deg, #313866, #50409a);
+  color: white;
+  text-align: center;
+  padding-bottom: 3rem;
+  transition: background 0.3s;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+  }
+  .logo span {
+    color: #00cec9;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    font-family: "Open Sans", sans-serif;
+  }
+  .nav-links a:hover {
+    color: #ffeaa7;
+  }
+
+  /* --- Toggle Switch --- */
+  .toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 32px;
+  }
+
+  .toggle input {
+    display: none;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ccc;
+    border-radius: 999px;
+    transition: background 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px;
+  }
+
+  .slider::before {
+    content: "";
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.4s;
+  }
+
+  /* Soleil + Lune */
+  .icon {
+    width: 18px;
+    height: 18px;
+    color: #fff;
+    z-index: 1;
+  }
+  .sun {
+    color: #f39c12;
+  }
+  .moon {
+    color: #2980b9;
+  }
+
+  /* Animation du toggle */
+  .toggle input:checked + .slider {
+    background: #2d3436;
+  }
+  .toggle input:checked + .slider::before {
+    transform: translateX(28px);
+  }
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.hero {
+  padding: 3rem 1rem;
+
+  span {
+    color: #ffeaa7;
+  }
+  .hero p {
+    margin-bottom: 1rem;
+    font-family: "Open Sans", sans-serif;
+  }
+  .btn {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #00cec9;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+    font-family: "Open Sans", sans-serif;
+  }
+  .btn:hover {
+    background: #019a9a;
+  }
+}
+
+main section {
+  padding: 3rem 1rem;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #6c5ce7;
+  font-family: "Montserrat", sans-serif;
+}
+
+.about {
+  display: flex;
+  gap: 2rem;
+}
+
+.desc {
+  width: 50%;
+  min-height: 600px;
+
+  p {
+    margin-bottom: 1rem;
+    font-family: "Open Sans", sans-serif;
+  }
+}
+
+.picture {
+  min-height: 600px;
+  background-image: url(assets/moi.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.news {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  flex-wrap: nowrap;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, background 0.3s, color 0.3s;
+  font-family: "Open Sans", sans-serif;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.skills ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+
+  li {
+    background: #dfe6e9;
+    padding: 0.7rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 500;
+    font-family: "Open Sans", sans-serif;
+    list-style: none;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #2d3436;
+  color: white;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+  font-family: "Open Sans", sans-serif;
+}
+
+.Socialmedia {
+  margin-top: 1rem;
+  gap: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* --- DARK MODE --- */
+body.dark-mode {
+  background: #1e1e2f;
+  color: #eaeaea;
+}
+
+body.dark-mode header {
+  background: linear-gradient(135deg, #2d3436, #0984e3);
+}
+
+body.dark-mode .nav-links a {
+  color: #eaeaea;
+}
+body.dark-mode .nav-links a:hover {
+  color: #74b9ff;
+}
+
+body.dark-mode .btn {
+  background: #0984e3;
+}
+body.dark-mode .btn:hover {
+  background: #0652dd;
+}
+
+body.dark-mode .card {
+  background: #2c2c3a;
+  color: #eaeaea;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .project-card {
+  background: #2c2c3a;
+  color: #eaeaea;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .skills li {
+  background: #3d3d4f;
+  color: #eaeaea;
+}
+
+body.dark-mode footer {
+  background: #111;
+}
