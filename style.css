@@ -173,12 +173,17 @@ h2 {
   display: flex;
   gap: 2rem;
   padding: 0;
-  padding-top: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .desc {
   width: 50%;
-  min-height: 37.5rem;
+  min-height: 25rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 
   p {
     margin-bottom: 1rem;
@@ -186,12 +191,11 @@ h2 {
 }
 
 .picture {
-  min-height: 37.25rem;
+  min-height: 25rem;
   background-image: url(assets/moi.jpg);
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
-  align-items: center;
   justify-content: center;
   width: 50%;
 }
@@ -204,14 +208,25 @@ h2 {
 .more {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+
+    p {
+      margin: 0;
+    }
+  }
 }
 
 .chevron {
-  width: 10%;
+  width: 1.5rem;
+  height: auto;
 }
 
 .cards-container {
@@ -231,7 +246,8 @@ h2 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  position: relative;
 }
 
 .card:hover {
@@ -295,6 +311,7 @@ footer {
   color: white;
   font-size: 0.9rem;
   transition: background 0.3s;
+  overflow: hidden;
 }
 
 .Socialmedia {
@@ -330,6 +347,10 @@ body.dark-mode .card {
   background: #2c2c3a;
   color: #eaeaea;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+
+  .chevron {
+    filter: invert(1);
+  }
 }
 
 body.dark-mode .project-card {
@@ -348,6 +369,10 @@ body.dark-mode footer {
 }
 
 @media (max-width: 1024px) {
+  body {
+    overflow-x: hidden;
+  }
+
   .navbar {
     flex-direction: column;
     align-items: center;
@@ -418,8 +443,12 @@ body.dark-mode footer {
     width: 2.5rem;
     height: 2.5rem;
   }
-}
 
+  .sticker {
+    max-width: 70%;
+    margin: 0 auto;
+  }
+}
 
 /* Styles for wait_screen.html */
 
