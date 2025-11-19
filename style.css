@@ -420,6 +420,9 @@ body.dark-mode footer {
   }
 }
 
+
+/* Styles for wait_screen.html */
+
 .containerwait {
   background: rgba(255, 255, 255, 0.1);
   padding: 40px 60px;
@@ -437,4 +440,10 @@ body.dark-mode footer {
 .containerwait p {
   font-size: 1.1rem;
   line-height: 1.5;
+}
+
+.sticker {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
