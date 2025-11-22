@@ -139,21 +139,6 @@ h1 {
   .hero p {
     margin-bottom: 1rem;
   }
-
-  .btn {
-    margin-top: 1rem;
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background: #00cec9;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s;
-  }
-
-  .btn:hover {
-    background: #019a9a;
-  }
 }
 
 main section {
@@ -297,7 +282,18 @@ h2 {
 }
 
 .btn {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: #00cec9;
+  color: white;
   text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #019a9a;
 }
 
 main > div {
