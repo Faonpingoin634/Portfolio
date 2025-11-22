@@ -351,6 +351,13 @@ body.dark-mode .btn:hover {
   background: #0652dd;
 }
 
+body.dark-mode .logo_atelier {
+  background: #ffffff;
+  border-radius: 16px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 body.dark-mode .card {
   background: #2c2c3a;
   color: #eaeaea;
