@@ -333,7 +333,7 @@ body.dark-mode {
 }
 
 body.dark-mode header {
- background: linear-gradient(180deg, #3a2a7c, #0e1225);
+ background: linear-gradient(180deg, #2e2163 , #0e1225);
 }
 
 body.dark-mode .nav-links a {
