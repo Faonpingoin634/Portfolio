@@ -12,6 +12,11 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 header {
   background: linear-gradient(260deg, #6c5ce7, #6d76ce);
   color: white;
@@ -279,7 +284,13 @@ h2 {
     border-radius: 25px;
     font-weight: 500;
     list-style: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
+}
+
+.skills li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .btn {
@@ -326,6 +337,20 @@ footer {
   justify-content: center;
 }
 
+/* --- Page Portfolio ---*/
+
+ul.tech {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tech-icon {
+  width: 5rem;
+  height: auto;
+  vertical-align: middle;
+}
+
 /* --- DARK MODE --- */
 body.dark-mode {
   background: #0e1225;
@@ -333,7 +358,7 @@ body.dark-mode {
 }
 
 body.dark-mode header {
- background: linear-gradient(180deg, #2e2163 , #0e1225);
+  background: linear-gradient(180deg, #2e2163, #0e1225);
 }
 
 body.dark-mode .nav-links a {
