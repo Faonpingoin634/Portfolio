@@ -10,18 +10,34 @@
     <header>
       <nav class="navbar">
         <div class="logo">Louka<span>.</span></div>
-        <ul class="nav-links">
+
+        <div class="burger-menu" id="burger-menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
           <li><a href="#about">À propos</a></li>
           <li><a href="#projects">Projets</a></li>
           <li><a href="#skills">Compétences</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
 
-        <!-- Toggle Switch -->
         <label class="toggle">
           <input type="checkbox" id="theme-toggle" />
           <span class="slider">
-            <!-- Soleil -->
             <svg
               class="icon sun"
               xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +53,6 @@
                   d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
               </g>
             </svg>
-            <!-- Lune -->
             <svg
               class="icon moon"
               xmlns="http://www.w3.org/2000/svg"
@@ -128,9 +143,7 @@
           </div>
           <div class="card">
             <h3>L'atelier de la fève</h3>
-            <p>
-              Un site vitrine, pour la création d'un café local.
-            </p>
+            <p>Un site vitrine, pour la création d'un café local.</p>
             <img
               class="logo_atelier"
               src="assets/projet/L'atelier_de_la_fève_logo.png"
@@ -386,6 +399,13 @@
           document.body.classList.remove("dark-mode");
           localStorage.setItem("theme", "light");
         }
+      });
+
+      const burgerMenu = document.getElementById("burger-menu");
+      const navLinks = document.getElementById("nav-links");
+
+      burgerMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("mobile-menu");
       });
     </script>
   </body>
