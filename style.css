@@ -314,12 +314,10 @@ h2 {
   transform: translateY(-5px);
 }
 
-/* Classe utilitaire pour masquer les projets filtrés */
 .project-card.hide {
   display: none;
 }
 
-/* Styles spécifiques pour la grille Bento (optionnel: peut être désactivé si le filtre casse la mise en page) */
 .project-card:nth-child(1) {
   grid-column: span 2;
   grid-row: span 2;
@@ -347,7 +345,7 @@ h2 {
   font-weight: 500;
   list-style: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-  cursor: pointer; /* Indique que c'est cliquable */
+  cursor: pointer;
 }
 
 .skills li:hover {
@@ -356,7 +354,6 @@ h2 {
   background: #b2bec3;
 }
 
-/* Style quand un filtre est actif */
 .skills li.active {
   background: #00cec9;
   color: white;
@@ -577,6 +574,55 @@ main > div p {
   animation: float 3s ease-in-out infinite;
 }
 
+/* --- FORMULAIRE DE CONTACT --- */
+.contact-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-form label {
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 1rem;
+  background: white;
+  color: #2f3640;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #6c5ce7;
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+}
+
+.contact-form button {
+  align-self: center;
+  border: none;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 200px;
+}
+
 @keyframes float {
   0%,
   100% {
@@ -690,6 +736,19 @@ body.dark-mode footer {
   background: #111;
 }
 
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+  background: #2c2c3a;
+  color: #eaeaea;
+  border-color: #444;
+}
+
+body.dark-mode .contact-form input:focus,
+body.dark-mode .contact-form textarea:focus {
+  border-color: #00cec9;
+  box-shadow: 0 0 0 3px rgba(0, 206, 201, 0.2);
+}
+
 /* --- RESPONSIVE MEDIA QUERIES --- */
 @media (max-width: 1024px) {
   .hero h1 {
@@ -788,67 +847,4 @@ body.dark-mode footer {
   footer {
     padding-bottom: 2rem;
   }
-}
-
-/* --- FORMULAIRE DE CONTACT --- */
-.contact-form {
-  max-width: 600px;
-  margin: 2rem auto;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.contact-form label {
-  font-weight: 600;
-  margin-left: 0.5rem;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 1rem;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-family: inherit;
-  font-size: 1rem;
-  background: white;
-  color: #2f3640;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: #6c5ce7;
-  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
-}
-
-.contact-form button {
-  align-self: center;
-  border: none;
-  font-size: 1rem;
-  width: 100%;
-  max-width: 200px;
-}
-
-/* --- ADAPTATION DARK MODE FORMULAIRE --- */
-body.dark-mode .contact-form input,
-body.dark-mode .contact-form textarea {
-  background: #2c2c3a;
-  color: #eaeaea;
-  border-color: #444;
-}
-
-body.dark-mode .contact-form input:focus,
-body.dark-mode .contact-form textarea:focus {
-  border-color: #00cec9;
-  box-shadow: 0 0 0 3px rgba(0, 206, 201, 0.2);
 }
