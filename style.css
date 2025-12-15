@@ -789,3 +789,66 @@ body.dark-mode footer {
     padding-bottom: 2rem;
   }
 }
+
+/* --- FORMULAIRE DE CONTACT --- */
+.contact-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-form label {
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 1rem;
+  background: white;
+  color: #2f3640;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #6c5ce7;
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+}
+
+.contact-form button {
+  align-self: center;
+  border: none;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 200px;
+}
+
+/* --- ADAPTATION DARK MODE FORMULAIRE --- */
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+  background: #2c2c3a;
+  color: #eaeaea;
+  border-color: #444;
+}
+
+body.dark-mode .contact-form input:focus,
+body.dark-mode .contact-form textarea:focus {
+  border-color: #00cec9;
+  box-shadow: 0 0 0 3px rgba(0, 206, 201, 0.2);
+}

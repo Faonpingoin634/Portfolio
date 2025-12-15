@@ -165,7 +165,7 @@
       </section>
 
       <section id="skills" class="skills">
-        <h2>Mes Compétences et Filtre de projet</h2>
+        <h2>Mes Compétences</h2>
         <ul class="skills-list">
           <li class="filter-btn active" data-filter="all">Tout voir</li>
           <li class="filter-btn" data-filter="html">HTML 5</li>
@@ -295,7 +295,43 @@
       <section id="contact" class="contact">
         <h2>Contact</h2>
         <p>Tu veux échanger sur un projet ou une opportunité ?</p>
-        <a href="wait_screen.html" class="btn">Me contacter</a>
+
+        <form
+          action="https://formspree.io/f/xrbnvbby"
+          method="POST"
+          class="contact-form">
+          <div class="form-group">
+            <label for="name">Nom Prénom</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Comment t'appelles-tu ?"
+              required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Pour te recontacter"
+              required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Dis-moi tout..."
+              required></textarea>
+          </div>
+
+          <button type="submit" class="btn">Envoyer le message</button>
+        </form>
       </section>
     </main>
 
