@@ -303,7 +303,7 @@ h2 {
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, background 0.3s, color 0.3s;
+  transition: transform 0.3s, background 0.3s, color 0.3s, opacity 0.3s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -314,6 +314,12 @@ h2 {
   transform: translateY(-5px);
 }
 
+/* Classe utilitaire pour masquer les projets filtrés */
+.project-card.hide {
+  display: none;
+}
+
+/* Styles spécifiques pour la grille Bento (optionnel: peut être désactivé si le filtre casse la mise en page) */
 .project-card:nth-child(1) {
   grid-column: span 2;
   grid-row: span 2;
@@ -333,18 +339,28 @@ h2 {
   padding: 0;
 }
 
+/* Style des boutons de filtres */
 .skills li {
   background: #dfe6e9;
   padding: 0.7rem 1.2rem;
   border-radius: 25px;
   font-weight: 500;
   list-style: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  cursor: pointer; /* Indique que c'est cliquable */
 }
 
 .skills li:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background: #b2bec3;
+}
+
+/* Style quand un filtre est actif */
+.skills li.active {
+  background: #00cec9;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 206, 201, 0.4);
 }
 
 /* --- BUTTONS & MISC --- */
@@ -482,8 +498,7 @@ main > div p {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Couleurs par défaut pour le portfolio, 
-   les projets spécifiques utilisent le style inline */
+/* Couleurs par défaut pour le portfolio */
 .color-swatch.purple {
   background: #6c5ce7;
 }
@@ -526,7 +541,7 @@ main > div p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 70vh; /* Centre verticalement */
+  min-height: 70vh;
   padding: 2rem 1rem;
 }
 
@@ -657,6 +672,12 @@ body.dark-mode .project-card:nth-child(1) {
 body.dark-mode .skills li {
   background: #3d3d4f;
   color: #eaeaea;
+}
+
+/* Style active dark mode pour les filtres */
+body.dark-mode .skills li.active {
+  background: #00cec9;
+  color: white;
 }
 
 body.dark-mode .containerwait {

@@ -165,36 +165,40 @@
       </section>
 
       <section id="skills" class="skills">
-        <h2>Compétences</h2>
-        <ul>
-          <li>HTML 5</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-          <li>PHP Vanilla</li>
-          <li>Python</li>
-          <li>MySQL</li>
-          <li>Git & GitHub</li>
-          <li>Wordpress</li>
-          <li>Responsive Design</li>
+        <h2>Mes Compétences et Filtre de projet</h2>
+        <ul class="skills-list">
+          <li class="filter-btn active" data-filter="all">Tout voir</li>
+          <li class="filter-btn" data-filter="html">HTML 5</li>
+          <li class="filter-btn" data-filter="css">CSS</li>
+          <li class="filter-btn" data-filter="js">JavaScript</li>
+          <li class="filter-btn" data-filter="react">React</li>
+          <li class="filter-btn" data-filter="php">PHP Vanilla</li>
+          <li class="filter-btn" data-filter="python">Python</li>
+          <li class="filter-btn" data-filter="mysql">MySQL</li>
+          <li class="filter-btn" data-filter="git">Git & GitHub</li>
+          <li class="filter-btn" data-filter="figma">Figma</li>
+          <li class="filter-btn" data-filter="json">JSON</li>
         </ul>
       </section>
 
       <section id="projects" class="projects">
         <h2>Mes Projets</h2>
         <div class="project-grid">
-          <div class="project-card">
+          <div class="project-card" data-tags="html css js git">
             <a href="project_portfolio.html"
               ><h3>Portfolio Web</h3>
               <p>Un site vitrine moderne pour présenter mes compétences.</p></a
             >
           </div>
-          <div class="project-card">
+
+          <div class="project-card" data-tags="python git">
             <a href="wait_screen.html"
               ><h3>Mini-Jeu en Pygame</h3>
               <p>Des jeux simple en Python avec Pygame.</p></a
             >
           </div>
-          <div class="project-card">
+
+          <div class="project-card" data-tags="python git">
             <a href="wait_screen.html"
               ><h3>Un bot discord en Python</h3>
               <p>
@@ -203,7 +207,8 @@
               </p></a
             >
           </div>
-          <div class="project-card">
+
+          <div class="project-card" data-tags="php html css git json">
             <a href="project_shifumi.html"
               ><h3>Sifumi en PHP</h3>
               <p>
@@ -212,7 +217,8 @@
               </p></a
             >
           </div>
-          <div class="project-card">
+
+          <div class="project-card" data-tags="html css js git mysql">
             <a href="L'atelier de la fève.html"
               ><h3>Site pour un café a emporter</h3>
               <p>
@@ -220,7 +226,8 @@
               </p></a
             >
           </div>
-          <div class="project-card">
+
+          <div class="project-card" data-tags="js react css git">
             <a href="project_react_api.html"
               ><h3>Site en React Paris fraicheur</h3>
               <p>
@@ -229,7 +236,8 @@
               </p></a
             >
           </div>
-          <div class="project-card">
+
+          <div class="project-card" data-tags="js html css git">
             <a href="wait_screen.html"
               ><h3>Site de maquettage en JS</h3>
               <p>
@@ -238,7 +246,8 @@
               </p></a
             >
           </div>
-          <div class="project-card">
+
+          <div class="project-card" data-tags="figma">
             <a href="wait_screen.html"
               ><h3>Maquettes de Pokédex Figma</h3>
               <p>
@@ -247,7 +256,8 @@
               </p></a
             >
           </div>
-          <div class="project-card">
+
+          <div class="project-card" data-tags="html css git">
             <a href="wait_screen.html"
               ><h3>Site Pokédex HTML CSS</h3>
               <p>
@@ -406,6 +416,29 @@
 
       burgerMenu.addEventListener("click", () => {
         navLinks.classList.toggle("mobile-menu");
+      });
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const projectCards = document.querySelectorAll(".project-card");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+
+          const filterValue = button.getAttribute("data-filter");
+
+          projectCards.forEach((card) => {
+            const tags = card.getAttribute("data-tags");
+
+            if (filterValue === "all") {
+              card.classList.remove("hide");
+            } else if (tags && tags.includes(filterValue)) {
+              card.classList.remove("hide");
+            } else {
+              card.classList.add("hide");
+            }
+          });
+        });
       });
     </script>
   </body>
