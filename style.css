@@ -716,19 +716,19 @@ html.dark-mode .contact-form textarea:focus {
 }
 
 /* --- DISCORD MOCKUP SPECIFIC --- */
-.discord-mockup {
-  background: #36393f !important;
-  color: #dcddde !important;
+/* AMELIORATION 4 : Suppression des !important et augmentation de la spécificité */
+main .discord-mockup {
+  background: #36393f;
+  color: #dcddde;
   font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-  display: flex !important;
+  display: flex;
   flex-direction: column;
-  align-items: flex-start !important;
-  justify-content: flex-start !important;
+  align-items: flex-start;
+  justify-content: flex-start;
   padding: 2rem;
   gap: 1.5rem;
-  height: auto !important;
-  border: none !important;
+  height: auto;
+  border: none;
 }
 
 .discord-msg {
@@ -787,8 +787,9 @@ html.dark-mode .contact-form textarea:focus {
   margin-left: 0.2rem;
 }
 
+/* AMELIORATION 4 : Suppression du !important */
 .discord-text {
-  margin: 0 !important;
+  margin: 0;
   line-height: 1.375rem;
   color: #dcddde;
 }
@@ -892,9 +893,15 @@ footer {
     text-align: center;
     padding-top: 1rem;
     order: 3;
+    /* AMELIORATION 4 : Transition pour le menu */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
   .nav-links.mobile-menu {
     display: flex;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   h1 {

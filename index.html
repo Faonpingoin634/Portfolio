@@ -33,6 +33,8 @@
     </script>
 
     <link rel="stylesheet" href="style.css" />
+
+    <script src="main.js" defer></script>
     <meta
       name="google-site-verification"
       content="fw4is7FLBwsCOA7eXsttE8Hta0wxTaeNYNV28-ODKlE" />
@@ -463,106 +465,6 @@
         </a>
       </section>
     </footer>
-
-    <script>
-      const toggle = document.getElementById("theme-toggle");
-
-      if (document.documentElement.classList.contains("dark-mode")) {
-        toggle.checked = true;
-      }
-
-      toggle.addEventListener("change", () => {
-        if (toggle.checked) {
-          document.documentElement.classList.add("dark-mode");
-          localStorage.setItem("theme", "dark");
-        } else {
-          document.documentElement.classList.remove("dark-mode");
-          localStorage.setItem("theme", "light");
-        }
-      });
-
-      const emailInput = document.getElementById("email");
-
-      emailInput.addEventListener("input", (e) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(e.target.value)) {
-          emailInput.style.borderColor = "red";
-        } else {
-          emailInput.style.borderColor = "green";
-        }
-      });
-
-      var form = document.getElementById("my-form");
-
-      async function handleSubmit(event) {
-        event.preventDefault();
-        var status = document.getElementById("my-form-status");
-        var data = new FormData(event.target);
-
-        fetch(event.target.action, {
-          method: form.method,
-          body: data,
-          headers: {
-            Accept: "application/json",
-          },
-        })
-          .then((response) => {
-            if (response.ok) {
-              status.innerHTML = "Merci ! Ton message a bien été envoyé.";
-              status.style.color = "var(--primary-color)";
-              form.reset();
-            } else {
-              response.json().then((data) => {
-                if (Object.hasOwn(data, "errors")) {
-                  status.innerHTML = data["errors"]
-                    .map((error) => error["message"])
-                    .join(", ");
-                } else {
-                  status.innerHTML =
-                    "Oups! Il y a eu un problème lors de l'envoi.";
-                  status.style.color = "red";
-                }
-              });
-            }
-          })
-          .catch((error) => {
-            status.innerHTML = "Oups! Il y a eu un problème lors de l'envoi.";
-            status.style.color = "red";
-          });
-      }
-
-      form.addEventListener("submit", handleSubmit);
-
-      const burgerMenu = document.getElementById("burger-menu");
-      const navLinks = document.getElementById("nav-links");
-
-      burgerMenu.addEventListener("click", () => {
-        navLinks.classList.toggle("mobile-menu");
-      });
-
-      const filterButtons = document.querySelectorAll(".filter-btn");
-      const projectCards = document.querySelectorAll(".project-card");
-
-      filterButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          filterButtons.forEach((btn) => btn.classList.remove("active"));
-          button.classList.add("active");
-
-          const filterValue = button.getAttribute("data-filter");
-
-          projectCards.forEach((card) => {
-            const tags = card.getAttribute("data-tags");
-
-            if (filterValue === "all") {
-              card.classList.remove("hide");
-            } else if (tags && tags.includes(filterValue)) {
-              card.classList.remove("hide");
-            } else {
-              card.classList.add("hide");
-            }
-          });
-        });
-      });
-    </script>
+    
   </body>
 </html>

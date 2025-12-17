@@ -7,12 +7,18 @@
 
     <script>
       const savedTheme = localStorage.getItem("theme");
-      if (savedTheme === "dark") {
+      if (
+        savedTheme === "dark" ||
+        (!savedTheme &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
         document.documentElement.classList.add("dark-mode");
       }
     </script>
 
     <link rel="stylesheet" href="style.css" />
+
+    <script src="main.js" defer></script>
   </head>
   <body>
     <header>
@@ -313,30 +319,5 @@
         </a>
       </section>
     </footer>
-
-    <script>
-      const toggle = document.getElementById("theme-toggle");
-
-      if (document.documentElement.classList.contains("dark-mode")) {
-        toggle.checked = true;
-      }
-
-      toggle.addEventListener("change", () => {
-        if (toggle.checked) {
-          document.documentElement.classList.add("dark-mode");
-          localStorage.setItem("theme", "dark");
-        } else {
-          document.documentElement.classList.remove("dark-mode");
-          localStorage.setItem("theme", "light");
-        }
-      });
-
-      const burgerMenu = document.getElementById("burger-menu");
-      const navLinks = document.getElementById("nav-links");
-
-      burgerMenu.addEventListener("click", () => {
-        navLinks.classList.toggle("mobile-menu");
-      });
-    </script>
   </body>
 </html>
