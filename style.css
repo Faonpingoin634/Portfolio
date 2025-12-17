@@ -716,7 +716,6 @@ html.dark-mode .contact-form textarea:focus {
 }
 
 /* --- DISCORD MOCKUP SPECIFIC --- */
-/* AMELIORATION 4 : Suppression des !important et augmentation de la spécificité */
 main .discord-mockup {
   background: #36393f;
   color: #dcddde;
@@ -787,7 +786,6 @@ main .discord-mockup {
   margin-left: 0.2rem;
 }
 
-/* AMELIORATION 4 : Suppression du !important */
 .discord-text {
   margin: 0;
   line-height: 1.375rem;
@@ -893,7 +891,6 @@ footer {
     text-align: center;
     padding-top: 1rem;
     order: 3;
-    /* AMELIORATION 4 : Transition pour le menu */
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;

@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById("theme-toggle");
 
   if (toggle) {
-    // Vérifie si le mode sombre est actif (mis par le script du head)
     if (document.documentElement.classList.contains("dark-mode")) {
       toggle.checked = true;
     }
@@ -36,13 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (filterButtons.length > 0) {
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        // Gestion de la classe active
         filterButtons.forEach((btn) => btn.classList.remove("active"));
         button.classList.add("active");
 
         const filterValue = button.getAttribute("data-filter");
 
-        // Masquer/Afficher les cartes
         projectCards.forEach((card) => {
           const tags = card.getAttribute("data-tags");
           if (filterValue === "all") {
