@@ -20,6 +20,18 @@
     <meta
       property="og:url"
       content="https://portfolio-three-rho-0bs8uopd0m.vercel.app/" />
+
+    <script>
+      const savedTheme = localStorage.getItem("theme");
+      if (
+        savedTheme === "dark" ||
+        (!savedTheme &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark-mode");
+      }
+    </script>
+
     <link rel="stylesheet" href="style.css" />
     <meta
       name="google-site-verification"
@@ -445,23 +457,17 @@
 
     <script>
       const toggle = document.getElementById("theme-toggle");
-      const savedTheme = localStorage.getItem("theme");
 
-      if (!savedTheme) {
-        localStorage.setItem("theme", "dark");
-      }
-
-      if (savedTheme === "dark" || !savedTheme) {
-        document.body.classList.add("dark-mode");
+      if (document.documentElement.classList.contains("dark-mode")) {
         toggle.checked = true;
       }
 
       toggle.addEventListener("change", () => {
         if (toggle.checked) {
-          document.body.classList.add("dark-mode");
+          document.documentElement.classList.add("dark-mode");
           localStorage.setItem("theme", "dark");
         } else {
-          document.body.classList.remove("dark-mode");
+          document.documentElement.classList.remove("dark-mode");
           localStorage.setItem("theme", "light");
         }
       });
@@ -472,6 +478,7 @@
       burgerMenu.addEventListener("click", () => {
         navLinks.classList.toggle("mobile-menu");
       });
+
       const filterButtons = document.querySelectorAll(".filter-btn");
       const projectCards = document.querySelectorAll(".project-card");
 
