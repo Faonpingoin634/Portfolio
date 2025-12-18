@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  
   /* --- 1. GESTION DU THEME (Dark Mode) --- */
   const toggle = document.getElementById("theme-toggle");
 

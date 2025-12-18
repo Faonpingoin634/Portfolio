@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portfolio-three-rho-0bs8uopd0m.vercel.app/sitemap.xml

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://portfolio-three-rho-0bs8uopd0m.vercel.app/index.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://portfolio-three-rho-0bs8uopd0m.vercel.app/project_portfolio.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://portfolio-three-rho-0bs8uopd0m.vercel.app/project_pygame.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://portfolio-three-rho-0bs8uopd0m.vercel.app/project_react_api.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://portfolio-three-rho-0bs8uopd0m.vercel.app/project_shifumi.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://portfolio-three-rho-0bs8uopd0m.vercel.app/projet_bot.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://portfolio-three-rho-0bs8uopd0m.vercel.app/L'atelier%20de%20la%20fève.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://portfolio-three-rho-0bs8uopd0m.vercel.app/wait_screen.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <priority>0.5</priority>
+  </url>
+</urlset>
