@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet Dashboard — Louka</title>
+
+    <script>
+      const savedTheme = localStorage.getItem("theme");
+      if (
+        savedTheme === "dark" ||
+        (!savedTheme &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark-mode");
+      }
+    </script>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="canonical"
+      href="https://www.louka-avenia.me/project_dashboard.html" />
+    <meta
+      property="og:url"
+      content="https://www.louka-avenia.me/project_dashboard.html" />
+
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">Louka<span>.</span></div>
+        <div class="burger-menu" id="burger-menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="#contexte">Contexte</a></li>
+          <li><a href="#tech">Tech</a></li>
+          <li><a href="#ui">Interface</a></li>
+        </ul>
+
+        <label class="toggle">
+          <input type="checkbox" id="theme-toggle" />
+          <span class="slider">
+            <svg
+              class="icon sun"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24">
+              <g
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2"
+                fill="none"
+                stroke="currentColor">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path
+                  d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+              </g>
+            </svg>
+            <svg
+              class="icon moon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24">
+              <g
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2"
+                fill="none"
+                stroke="currentColor">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+              </g>
+            </svg>
+          </span>
+        </label>
+      </nav>
+
+      <section class="hero-project">
+        <h1>Projet <span>Dashboard</span></h1>
+        <p>Intégration d'une interface d'administration responsive</p>
+        <a href="index.html#projects" class="btn">Retour aux projets</a>
+      </section>
+    </header>
+
+    <main class="portfolio-main">
+      <section id="contexte" class="detail-section">
+        <div class="content-card full-width">
+          <h2>Le Contexte</h2>
+          <p>
+            Ce projet avait pour but de concevoir et développer une interface
+            utilisateur (UI) de type
+            <strong>"Tableau de bord"</strong> (Dashboard). C'est un exercice
+            classique mais essentiel pour maîtriser la structure complexe d'une
+            application web moderne.
+          </p>
+          <p>
+            L'objectif principal était de créer une interface claire, capable
+            d'afficher de nombreuses informations (statistiques, graphiques,
+            listes d'utilisateurs) tout en restant parfaitement lisible sur
+            mobile comme sur ordinateur.
+          </p>
+        </div>
+      </section>
+
+      <section class="detail-section row-layout">
+        <div class="content-card half-width">
+          <h2>Architecture & Layout</h2>
+          <ul class="styled-list">
+            <li>
+              <strong>CSS Grid & Flexbox :</strong> Utilisation avancée de Grid
+              pour la structure principale (Sidebar + Main Content) et Flexbox
+              pour l'alignement des composants internes.
+            </li>
+            <li>
+              <strong>Responsive Design :</strong> La barre latérale (Sidebar)
+              devient un menu mobile sur les petits écrans pour optimiser
+              l'espace.
+            </li>
+            <li>
+              <strong>Composants Modulaires :</strong> Création de "Cartes"
+              (Cards) réutilisables pour afficher les statistiques clés et les
+              notifications.
+            </li>
+            <li>
+              <strong>Intégration HTML Sémantique :</strong> Respect des balises
+              standard pour assurer une bonne accessibilité et maintenabilité du
+              code.
+            </li>
+          </ul>
+        </div>
+
+        <div class="content-card half-width" id="tech">
+          <h2>Stack Technique</h2>
+          <ul class="tech-list">
+            <li>
+              <img
+                class="tech-icon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                alt="HTML5" />
+              <span>HTML5 : Structure sémantique</span>
+            </li>
+            <li>
+              <img
+                class="tech-icon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+                alt="CSS3" />
+              <span>CSS3 : Layout & Animations</span>
+            </li>
+            <li>
+              <img
+                class="tech-icon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                alt="JS" />
+              <span>JavaScript : Interactivité</span>
+            </li>
+            <li>
+              <img
+                class="tech-icon"
+                src="https://api.iconify.design/bx:bxs-dashboard.svg?color=%23555555"
+                alt="UI" />
+              <span>UI Design : Ergonomie</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="ui" class="detail-section">
+        <div class="content-card full-width">
+          <h2>Le Défi : Structure et Adaptabilité</h2>
+          <p>
+            Le défi majeur d'un dashboard n'est pas tant le code complexe, mais
+            l'organisation visuelle. Il faut éviter la surcharge cognitive pour
+            l'utilisateur.
+          </p>
+          <div class="da-block" style="margin-top: 1.5rem">
+            <h3>Points clés du développement :</h3>
+            <ul class="styled-list" style="margin-top: 1rem">
+              <li>
+                Gérer le positionnement fixe de la navigation tout en permettant
+                le scroll du contenu principal.
+              </li>
+              <li>
+                Adapter les tableaux de données (Data Tables) pour qu'ils
+                restent lisibles sur smartphone.
+              </li>
+              <li>
+                Assurer une cohérence des couleurs et des espacements pour un
+                rendu professionnel.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="content-card full-width">
+          <h2>Aperçu de l'interface</h2>
+          <div
+            class="placeholder-img"
+            style="
+              background: #e1e1e1;
+              color: #555;
+              height: 300px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 8px;
+            ">
+            <p>Capture d'écran du Dashboard (Menu latéral et graphiques)</p>
+          </div>
+          <p class="caption">
+            L'interface structure les données importantes au premier coup d'œil.
+          </p>
+
+          <div style="text-align: center; margin-top: 2rem">
+            <a
+              href="https://github.com/Faonpingoin634/Dashboard"
+              target="_blank"
+              class="btn"
+              >Voir le code sur GitHub</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Louka — Tous droits réservés</p>
+      <section class="Socialmedia">
+        <a
+          href="https://www.linkedin.com/in/louka-avenia/ "
+          target="_blank"
+          rel="noopener noreferrer">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="50"
+            height="50"
+            viewBox="0,0,256,256">
+            <g
+              fill="#fffefe"
+              fill-rule="nonzero"
+              stroke="none"
+              stroke-width="1"
+              stroke-linecap="butt"
+              stroke-linejoin="miter"
+              stroke-miterlimit="10"
+              stroke-dasharray=""
+              stroke-dashoffset="0"
+              font-family="none"
+              font-weight="none"
+              font-size="none"
+              text-anchor="none"
+              style="mix-blend-mode: normal">
+              <g transform="scale(5.12,5.12)">
+                <path
+                  d="M41,4h-32c-2.76,0 -5,2.24 -5,5v32c0,2.76 2.24,5 5,5h32c2.76,0 5,-2.24 5,-5v-32c0,-2.76 -2.24,-5 -5,-5zM17,20v19h-6v-19zM11,14.47c0,-1.4 1.2,-2.47 3,-2.47c1.8,0 2.93,1.07 3,2.47c0,1.4 -1.12,2.53 -3,2.53c-1.8,0 -3,-1.13 -3,-2.53zM39,39h-6c0,0 0,-9.26 0,-10c0,-2 -1,-4 -3.5,-4.04h-0.08c-2.42,0 -3.42,2.06 -3.42,4.04c0,0.91 0,10 0,10h-6v-19h6v2.56c0,0 1.93,-2.56 5.81,-2.56c3.97,0 7.19,2.73 7.19,8.26z"></path>
+              </g>
+            </g>
+          </svg>
+        </a>
+        <a
+          href="https://github.com/Faonpingoin634?tab=overview&from=2025-11-01&to=2025-11-06"
+          target="_blank"
+          rel="noopener noreferrer">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="50"
+            height="50"
+            viewBox="0,0,256,256">
+            <g
+              fill="#fffefe"
+              fill-rule="nonzero"
+              stroke="none"
+              stroke-width="1"
+              stroke-linecap="butt"
+              stroke-linejoin="miter"
+              stroke-miterlimit="10"
+              stroke-dasharray=""
+              stroke-dashoffset="0"
+              font-family="none"
+              font-weight="none"
+              font-size="none"
+              text-anchor="none"
+              style="mix-blend-mode: normal">
+              <g transform="scale(5.12,5.12)">
+                <path
+                  d="M17.791,46.836c0.711,-0.306 1.209,-1.013 1.209,-1.836v-5.4c0,-0.197 0.016,-0.402 0.041,-0.61c-0.014,0.004 -0.027,0.007 -0.041,0.01c0,0 -3,0 -3.6,0c-1.5,0 -2.8,-0.6 -3.4,-1.8c-0.7,-1.3 -1,-3.5 -2.8,-4.7c-0.3,-0.2 -0.1,-0.5 0.5,-0.5c0.6,0.1 1.9,0.9 2.7,2c0.9,1.1 1.8,2 3.4,2c2.487,0 3.82,-0.125 4.622,-0.555c0.934,-1.389 2.227,-2.445 3.578,-2.445v-0.025c-5.668,-0.182 -9.289,-2.066 -10.975,-4.975c-3.665,0.042 -6.856,0.405 -8.677,0.707c-0.058,-0.327 -0.108,-0.656 -0.151,-0.987c1.797,-0.296 4.843,-0.647 8.345,-0.714c-0.112,-0.276 -0.209,-0.559 -0.291,-0.849c-3.511,-0.178 -6.541,-0.039 -8.187,0.097c-0.02,-0.332 -0.047,-0.663 -0.051,-0.999c1.649,-0.135 4.597,-0.27 8.018,-0.111c-0.079,-0.5 -0.13,-1.011 -0.13,-1.543c0,-1.7 0.6,-3.5 1.7,-5c-0.5,-1.7 -1.2,-5.3 0.2,-6.6c2.7,0 4.6,1.3 5.5,2.1c1.699,-0.701 3.599,-1.101 5.699,-1.101c2.1,0 4,0.4 5.6,1.1c0.9,-0.8 2.8,-2.1 5.5,-2.1c1.5,1.4 0.7,5 0.2,6.6c1.1,1.5 1.7,3.2 1.6,5c0,0.484 -0.045,0.951 -0.11,1.409c3.499,-0.172 6.527,-0.034 8.204,0.102c-0.002,0.337 -0.033,0.666 -0.051,0.999c-1.671,-0.138 -4.775,-0.28 -8.359,-0.089c-0.089,0.336 -0.197,0.663 -0.325,0.98c3.546,0.046 6.665,0.389 8.548,0.689c-0.043,0.332 -0.093,0.661 -0.151,0.987c-1.912,-0.306 -5.171,-0.664 -8.879,-0.682c-1.665,2.878 -5.22,4.755 -10.777,4.974v0.031c2.6,0 5,3.9 5,6.6v5.4c0,0.823 0.498,1.53 1.209,1.836c9.161,-3.032 15.791,-11.672 15.791,-21.836c0,-12.682 -10.317,-23 -23,-23c-12.683,0 -23,10.318 -23,23c0,10.164 6.63,18.804 15.791,21.836z"></path>
+              </g>
+            </g>
+          </svg>
+        </a>
+        <a href="wait_screen.html">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="50"
+            height="50"
+            viewBox="0 0 50 50">
+            <path
+              fill="white"
+              d="M41,4H9C6.243,4,4,6.243,4,9v32c0,2.757,2.243,5,5,5h32c2.757,0,5-2.243,5-5V9C46,6.243,43.757,4,41,4z M37.006,22.323
+      c-0.227,0.021-0.457,0.035-0.69,0.035c-2.623,0-4.928-1.349-6.269-3.388c0,5.349,0,11.435,0,11.537c0,4.709-3.818,8.527-8.527,8.527
+      s-8.527-3.818-8.527-8.527s3.818-8.527,8.527-8.527c0.178,0,0.352,0.016,0.527,0.027v4.202c-0.175-0.021-0.347-0.053-0.527-0.053
+      c-2.404,0-4.352,1.948-4.352,4.352s1.948,4.352,4.352,4.352s4.527-1.894,4.527-4.298c0-0.095,0.042-19.594,0.042-19.594h4.016
+      c0.378,3.591,3.277,6.425,6.901,6.685V22.323z"></path>
+          </svg>
+        </a>
+      </section>
+    </footer>
+  </body>
+</html>
