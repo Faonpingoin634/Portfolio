@@ -27,11 +27,20 @@ document.addEventListener("DOMContentLoaded", () => {
     burgerMenu.addEventListener("click", () => {
       navLinks.classList.toggle("mobile-menu");
     });
+
+    // AMÉLIORATION UX : Fermer le menu quand on clique sur un lien
+    const menuLinks = navLinks.querySelectorAll("a");
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("mobile-menu");
+      });
+    });
   }
 
-  /* --- 3. FILTRES PROJETS (Page Accueil uniquement) --- */
+  /* --- 3. FILTRES PROJETS --- */
   const filterButtons = document.querySelectorAll(".filter-btn");
   const projectCards = document.querySelectorAll(".project-card");
+  const projectGrid = document.querySelector(".project-grid");
 
   if (filterButtons.length > 0) {
     filterButtons.forEach((button) => {
@@ -40,17 +49,43 @@ document.addEventListener("DOMContentLoaded", () => {
         button.classList.add("active");
 
         const filterValue = button.getAttribute("data-filter");
+        let visibleCount = 0; 
 
         projectCards.forEach((card) => {
           const tags = card.getAttribute("data-tags");
+          // On sépare les tags par espace pour éviter les faux positifs (ex: "java" dans "javascript")
+          const tagsArray = tags ? tags.split(" ") : [];
+
           if (filterValue === "all") {
             card.classList.remove("hide");
-          } else if (tags && tags.includes(filterValue)) {
+            visibleCount++;
+          } else if (tagsArray.includes(filterValue)) {
             card.classList.remove("hide");
+            visibleCount++;
           } else {
             card.classList.add("hide");
           }
         });
+
+        let noResultMsg = document.getElementById("no-result-msg");
+
+        if (visibleCount === 0) {
+          if (!noResultMsg) {
+            noResultMsg = document.createElement("div");
+            noResultMsg.id = "no-result-msg";
+            noResultMsg.innerHTML =
+              "<p>Aucun projet trouvé pour cette catégorie pour le moment.</p>";
+            noResultMsg.style.gridColumn = "1 / -1";
+            noResultMsg.style.textAlign = "center";
+            noResultMsg.style.padding = "2rem";
+            noResultMsg.style.color = "var(--text-color)";
+            projectGrid.appendChild(noResultMsg);
+          }
+        } else {
+          if (noResultMsg) {
+            noResultMsg.remove();
+          }
+        }
       });
     });
   }
