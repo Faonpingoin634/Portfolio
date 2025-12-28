@@ -26,13 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
   if (burgerMenu && navLinks) {
     burgerMenu.addEventListener("click", () => {
       navLinks.classList.toggle("mobile-menu");
+      document.body.classList.toggle("no-scroll");
     });
 
-    // AMÉLIORATION UX : Fermer le menu quand on clique sur un lien
     const menuLinks = navLinks.querySelectorAll("a");
     menuLinks.forEach((link) => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("mobile-menu");
+        document.body.classList.remove("no-scroll");
       });
     });
   }
@@ -49,11 +50,10 @@ document.addEventListener("DOMContentLoaded", () => {
         button.classList.add("active");
 
         const filterValue = button.getAttribute("data-filter");
-        let visibleCount = 0; 
+        let visibleCount = 0;
 
         projectCards.forEach((card) => {
           const tags = card.getAttribute("data-tags");
-          // On sépare les tags par espace pour éviter les faux positifs (ex: "java" dans "javascript")
           const tagsArray = tags ? tags.split(" ") : [];
 
           if (filterValue === "all") {
@@ -141,4 +141,37 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  /* --- 6. ANIMATION AU SCROLL --- */
+
+  const staggerLists = document.querySelectorAll(
+    ".stagger-list, .project-grid, .cards-container"
+  );
+
+  staggerLists.forEach((list) => {
+    const children = list.querySelectorAll(".reveal");
+    children.forEach((child, index) => {
+      child.style.setProperty("--delay", `${index * 0.1}s`);
+    });
+  });
+
+  const revealElements = document.querySelectorAll(".reveal");
+
+  const revealOptions = {
+    threshold: 0.15,
+    rootMargin: "0px 0px -50px 0px",
+  };
+
+  const revealOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("reveal-visible");
+        observer.unobserve(entry.target); 
+      }
+    });
+  }, revealOptions);
+
+  revealElements.forEach((el) => {
+    revealOnScroll.observe(el);
+  });
 });
