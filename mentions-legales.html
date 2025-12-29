@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mentions Légales — Louka</title>
+    <script>
+      const savedTheme = localStorage.getItem("theme");
+      if (
+        savedTheme === "dark" ||
+        (!savedTheme &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark-mode");
+      }
+    </script>
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+
+    <link rel="stylesheet" href="style.css" />
+    <meta name="robots" content="noindex" />
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">Louka<span>.</span></div>
+
+        <div class="burger-menu">
+          <a href="index.html" class="nav-close-btn" aria-label="Fermer"
+            >&#x2715;</a
+          >
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Retour au site</a></li>
+        </ul>
+      </nav>
+
+      <section class="hero-project">
+        <h1>Mentions <span>Légales</span></h1>
+      </section>
+    </header>
+
+    <main class="portfolio-main">
+      <section class="detail-section">
+        <div class="content-card full-width legal-content">
+          <h2>1. Éditeur du site</h2>
+          <p>
+            <strong>Nom :</strong> Louka Avenia<br />
+            <strong>Statut :</strong> Freelance / Étudiant<br />
+            <strong>Adresse :</strong> 78300 Poissy<br />
+            <strong>Contact :</strong> louka.avenia@gmail.com<br />
+            <strong>SIRET :</strong>
+          </p>
+
+          <h2>2. Hébergement</h2>
+          <p>
+            Ce site est hébergé par :<br />
+            <strong>Vercel Inc.</strong><br />
+            340 S Lemon Ave #4133<br />
+            Walnut, CA 91789<br />
+            United States<br />
+            <a
+              href="https://vercel.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://vercel.com</a
+            >
+          </p>
+
+          <h2>3. Propriété Intellectuelle</h2>
+          <p>
+            L'ensemble de ce site (code, design, textes, images, projets) relève
+            de la législation française et internationale sur le droit d'auteur
+            et la propriété intellectuelle. Toute reproduction totale ou
+            partielle est interdite sans autorisation expresse de Louka Avenia.
+          </p>
+
+          <h2>4. Données Personnelles</h2>
+          <p>
+            Ce site ne collecte aucune donnée personnelle à l'insu de
+            l'utilisateur. Le formulaire de contact utilise le service Formspree
+            pour transmettre les messages directement par email. Aucune base de
+            données client n'est stockée sur ce site.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Louka — Tous droits réservés</p>
+    </footer>
+  </body>
+</html>

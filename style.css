@@ -1110,3 +1110,28 @@ html.dark-mode .portfolio-logo {
   max-width: 100%;
   height: auto;
 }
+
+/* --- MENTIONS LÉGALES SPECIFIC --- */
+.nav-close-btn {
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.nav-close-btn:hover {
+  color: var(--accent-color);
+  transform: rotate(90deg);
+}
+
+.legal-content h2:not(:first-child) {
+  margin-top: 2.5rem; 
+}
+
+.legal-content strong {
+  color: var(--primary-color);
+}
