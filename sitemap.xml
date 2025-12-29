@@ -2,63 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.louka-avenia.me/index.html</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2025-12-29</lastmod>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://www.louka-avenia.me/project_dashboard.html</loc>
-    <lastmod>2025-12-27</lastmod>
+    <lastmod>2025-12-29</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.louka-avenia.me/project_pokedex.html</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2025-12-29</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.louka-avenia.me/project_maquette.html</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2025-12-29</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.louka-avenia.me/project_portfolio.html</loc>
-    <lastmod>2025-12-26</lastmod>
+    <lastmod>2025-12-29</lastmod>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://www.louka-avenia.me/project_react_api.html</loc>
-    <lastmod>2025-12-26</lastmod>
+    <lastmod>2025-12-29</lastmod>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://www.louka-avenia.me/project_pygame.html</loc>
-    <lastmod>2025-12-26</lastmod>
+    <lastmod>2025-12-29</lastmod>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://www.louka-avenia.me/projet_bot.html</loc>
-    <lastmod>2025-12-26</lastmod>
+    <loc>https://www.louka-avenia.me/project_bot.html</loc>
+    <lastmod>2025-12-29</lastmod>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://www.louka-avenia.me/project_shifumi.html</loc>
-    <lastmod>2025-12-26</lastmod>
+    <lastmod>2025-12-29</lastmod>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://www.louka-avenia.me/L'atelier%20de%20la%20f%C3%A8ve.html</loc>
-    <lastmod>2025-12-26</lastmod>
+    <loc>https://www.louka-avenia.me/latelier-de-la-feve.html</loc>
+    <lastmod>2025-12-29</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.louka-avenia.me/wait_screen.html</loc>
-    <lastmod>2025-12-26</lastmod>
+    <lastmod>2025-12-29</lastmod>
     <priority>0.5</priority>
   </url>
 </urlset>

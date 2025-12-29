@@ -1063,3 +1063,50 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* --- STYLES LOGOS PROJETS --- */
+.project-logo,
+.logo_atelier {
+  display: block;
+  margin: 1.5rem auto;
+}
+
+.portfolio-logo {
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--text-color);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.portfolio-logo span {
+  color: var(--accent-color);
+}
+
+.react-logo {
+  height: 120px;
+  width: auto;
+  max-width: 100%;
+  animation: spin-react 20s linear infinite;
+}
+
+@keyframes spin-react {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+html.dark-mode .portfolio-logo {
+  color: #fff;
+}
+
+.logo_atelier {
+  max-width: 100%;
+  height: auto;
+}
