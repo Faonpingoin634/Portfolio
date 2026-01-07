@@ -350,7 +350,7 @@ html.dark-mode .chevron {
 
 html.dark-mode .logo_atelier {
   background: #ffffff;
-  border-radius: 16px;
+  border-radius: 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -512,7 +512,7 @@ html.dark-mode .content-card {
 
 .half-width {
   flex: 1;
-  min-width: 300px;
+  min-width: 18.75rem;
 }
 
 .tech-list {
@@ -594,7 +594,7 @@ html.dark-mode .content-card {
   box-shadow: var(--wait-shadow);
   text-align: center;
   margin-bottom: 2rem;
-  max-width: 600px;
+  max-width: 37.5rem;
   width: 90%;
   animation: fadeIn 0.8s ease-out;
   transition: background 0.3s, box-shadow 0.3s;
@@ -621,7 +621,7 @@ html.dark-mode .content-card {
 
 /* --- FORMULAIRE DE CONTACT --- */
 .contact-form {
-  max-width: 600px;
+  max-width: 37.5rem;
   margin: 2rem auto;
   text-align: left;
   display: flex;
@@ -671,7 +671,7 @@ html.dark-mode .contact-form textarea:focus {
   border: none;
   font-size: 1rem;
   width: 100%;
-  max-width: 200px;
+  max-width: 12.5rem;
 }
 
 /* --- DISCORD MOCKUP SPECIFIC --- */
@@ -699,8 +699,8 @@ main .discord-mockup {
 }
 
 .discord-avatar {
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -787,9 +787,9 @@ footer {
 /* --- PYGAME PROJECT SPECIFIC --- */
 .pygame-screen {
   background-color: #bbada0;
-  width: 300px;
-  height: 300px;
-  border-radius: 10px;
+  width: 18.75rem;
+  height: 18.75rem;
+  border-radius: 1rem;
   padding: 10px;
   display: flex;
   justify-content: center;
@@ -1085,7 +1085,7 @@ footer {
 }
 
 .react-logo {
-  height: 120px;
+  height: 7.5rem;
   width: auto;
   max-width: 100%;
   animation: spin-react 20s linear infinite;
@@ -1117,8 +1117,8 @@ html.dark-mode .portfolio-logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .nav-close-btn:hover {
@@ -1127,9 +1127,185 @@ html.dark-mode .portfolio-logo {
 }
 
 .legal-content h2:not(:first-child) {
-  margin-top: 2.5rem; 
+  margin-top: 2.5rem;
 }
 
 .legal-content strong {
   color: var(--primary-color);
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.btn-github {
+  background-color: #24292e;
+  color: white;
+}
+
+.btn-github:hover {
+  background-color: #444c56;
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.gallery-item img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+html.dark-mode .gallery-item img {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- STYLES PALETTE DE COULEURS --- */
+.color-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+.color-swatch {
+  flex: 1;
+  min-width: 120px;
+  height: 100px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.color-swatch:hover {
+  transform: translateY(-5px);
+}
+
+.color-swatch .hex {
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+}
+
+.color-swatch .name {
+  font-size: 0.85rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* === COULEURS SPECIFIQUES === */
+
+/* -- PALETTE MODE SOMBRE -- */
+.swatch-dark-bg {
+  background-color: #0e1225;
+  color: white;
+}
+
+.swatch-dark-card {
+  background-color: #2c2c3a;
+  color: white;
+}
+
+.swatch-text {
+  background-color: #eaeaea;
+  color: #0e1225;
+  border: 1px solid #ccc;
+}
+
+/* -- PALETTE MODE CLAIR -- */
+.swatch-purple {
+  background-color: #6c5ce7;
+  color: white;
+}
+
+.swatch-light-purple {
+  background-color: #6d76ce;
+  color: white;
+}
+
+.swatch-yellow {
+  background-color: #f1c40f;
+  color: #2f3640;
+}
+
+.swatch-dark-yellow {
+  background-color: #f39c12;
+  color: white;
+}
+
+/* --- LIGHTBOX (Zoom Image) --- */
+.lightbox {
+  display: none; 
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.lightbox.active .lightbox-content {
+  transform: scale(1);
+}
+
+.close-lightbox {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+  z-index: 2001;
+}
+
+.close-lightbox:hover {
+  color: var(--accent-color);
+}
+
+.gallery-item img {
+  cursor: zoom-in;
 }

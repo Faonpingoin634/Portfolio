@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  
-  /* --- 1. GESTION DU THEME (Dark Mode) --- */
+  /*  1. GESTION DU THÈME (Dark / Light Mode)*/
   const toggle = document.getElementById("theme-toggle");
 
   if (toggle) {
@@ -19,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* --- 2. MENU BURGER (Mobile) --- */
+  /*2. MENU BURGER (Mobile) */
   const burgerMenu = document.getElementById("burger-menu");
   const navLinks = document.getElementById("nav-links");
 
@@ -38,12 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* --- 3. FILTRES PROJETS --- */
+  /* 3. FILTRES PROJETS (Page Accueil) */
   const filterButtons = document.querySelectorAll(".filter-btn");
   const projectCards = document.querySelectorAll(".project-card");
   const projectGrid = document.querySelector(".project-grid");
 
-  if (filterButtons.length > 0) {
+  if (filterButtons.length > 0 && projectGrid) {
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
         filterButtons.forEach((btn) => btn.classList.remove("active"));
@@ -56,10 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const tags = card.getAttribute("data-tags");
           const tagsArray = tags ? tags.split(" ") : [];
 
-          if (filterValue === "all") {
-            card.classList.remove("hide");
-            visibleCount++;
-          } else if (tagsArray.includes(filterValue)) {
+          if (filterValue === "all" || tagsArray.includes(filterValue)) {
             card.classList.remove("hide");
             visibleCount++;
           } else {
@@ -75,10 +71,13 @@ document.addEventListener("DOMContentLoaded", () => {
             noResultMsg.id = "no-result-msg";
             noResultMsg.innerHTML =
               "<p>Aucun projet trouvé pour cette catégorie pour le moment.</p>";
-            noResultMsg.style.gridColumn = "1 / -1";
-            noResultMsg.style.textAlign = "center";
-            noResultMsg.style.padding = "2rem";
-            noResultMsg.style.color = "var(--text-color)";
+            // Styles injectés dynamiquement
+            Object.assign(noResultMsg.style, {
+              gridColumn: "1 / -1",
+              textAlign: "center",
+              padding: "2rem",
+              color: "var(--text-color)",
+            });
             projectGrid.appendChild(noResultMsg);
           }
         } else {
@@ -90,7 +89,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* --- 4. VALIDATION EMAIL (Contact) --- */
+  /*  4. FORMULAIRE DE CONTACT (Validation & Envoi)*/
+
   const emailInput = document.getElementById("email");
   if (emailInput) {
     emailInput.addEventListener("input", (e) => {
@@ -103,13 +103,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* --- 5. ENVOI FORMULAIRE (Contact) --- */
   const form = document.getElementById("my-form");
-  if (form) {
+  const status = document.getElementById("my-form-status");
+
+  if (form && status) {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      var status = document.getElementById("my-form-status");
-      var data = new FormData(event.target);
+      const data = new FormData(event.target);
 
       try {
         const response = await fetch(event.target.action, {
@@ -122,12 +122,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (response.ok) {
           status.innerHTML = "Merci ! Ton message a bien été envoyé.";
-          status.style.color = "var(--primary-color)";
+          status.style.color = "var(--primary-color)"; // Utilise la couleur du thème (vert/violet)
           form.reset();
+          if (emailInput) emailInput.style.borderColor = "var(--input-border)";
         } else {
-          const data = await response.json();
-          if (Object.hasOwn(data, "errors")) {
-            status.innerHTML = data["errors"]
+          const dataJson = await response.json();
+          if (Object.hasOwn(dataJson, "errors")) {
+            status.innerHTML = dataJson["errors"]
               .map((error) => error["message"])
               .join(", ");
           } else {
@@ -136,42 +137,98 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         }
       } catch (error) {
-        status.innerHTML = "Oups! Il y a eu un problème lors de l'envoi.";
+        status.innerHTML = "Oups! Il y a eu un problème réseau.";
         status.style.color = "red";
       }
     });
   }
 
-  /* --- 6. ANIMATION AU SCROLL --- */
+  /* 5. ANIMATION AU SCROLL (IntersectionObserver) */
 
   const staggerLists = document.querySelectorAll(
     ".stagger-list, .project-grid, .cards-container"
   );
-
-  staggerLists.forEach((list) => {
-    const children = list.querySelectorAll(".reveal");
-    children.forEach((child, index) => {
-      child.style.setProperty("--delay", `${index * 0.1}s`);
+  if (staggerLists.length > 0) {
+    staggerLists.forEach((list) => {
+      const children = list.querySelectorAll(".reveal");
+      children.forEach((child, index) => {
+        child.style.setProperty("--delay", `${index * 0.1}s`);
+      });
     });
-  });
+  }
 
+  // B. Déclenchement de l'animation
   const revealElements = document.querySelectorAll(".reveal");
 
-  const revealOptions = {
-    threshold: 0.15,
-    rootMargin: "0px 0px -50px 0px",
-  };
+  if (revealElements.length > 0) {
+    const revealOptions = {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px",
+    };
 
-  const revealOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("reveal-visible");
-        observer.unobserve(entry.target); 
+    const revealOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("reveal-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, revealOptions);
+
+    revealElements.forEach((el) => {
+      revealOnScroll.observe(el);
+    });
+  }
+
+  /* 6. LIGHTBOX (Zoom Images)*/
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".close-lightbox");
+
+  const galleryImages = document.querySelectorAll(
+    ".project-gallery img, .card img, .pygame-screen img"
+  );
+
+  if (lightbox && lightboxImg) {
+    if (galleryImages.length > 0) {
+      galleryImages.forEach((img) => {
+        if (
+          !img.classList.contains("tech-icon") &&
+          !img.classList.contains("icon")
+        ) {
+          img.style.cursor = "zoom-in";
+          img.addEventListener("click", (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+
+            lightbox.classList.add("active");
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            document.body.classList.add("no-scroll");
+          });
+        }
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => {
+        lightbox.classList.remove("active");
+        document.body.classList.remove("no-scroll");
+      });
+    }
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove("active");
+        document.body.classList.remove("no-scroll");
       }
     });
-  }, revealOptions);
 
-  revealElements.forEach((el) => {
-    revealOnScroll.observe(el);
-  });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightbox.classList.contains("active")) {
+        lightbox.classList.remove("active");
+        document.body.classList.remove("no-scroll");
+      }
+    });
+  }
 });

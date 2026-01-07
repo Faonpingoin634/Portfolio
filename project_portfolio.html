@@ -104,7 +104,16 @@
       <section class="hero-project">
         <h1>Projet <span>Portfolio</span></h1>
         <p>Refonte complète de mon identité numérique</p>
-        <a href="index.html#projects" class="btn">Voir les autres projets</a>
+
+        <div class="hero-actions">
+          <a href="index.html#projects" class="btn">Voir les autres projets</a>
+          <a
+            href="https://github.com/Faonpingoin634/Portfolio"
+            target="_blank"
+            class="btn btn-github">
+            Voir le code sur GitHub
+          </a>
+        </div>
       </section>
     </header>
 
@@ -210,20 +219,24 @@
               titres afin de garder l'identité. Le fond passe au gris très foncé
               (#0e1225) pour un contraste optimal avec le texte clair (#eaeaea).
             </p>
+
             <div class="color-palette">
-              <div class="color-swatch dark-bg">
+              <div class="color-swatch swatch-dark-bg">
                 <span class="hex">#0e1225</span>
                 <span class="name">Fond</span>
               </div>
-              <div class="color-swatch dark-card">
+
+              <div class="color-swatch swatch-dark-card">
                 <span class="hex">#2c2c3a</span>
                 <span class="name">Cartes</span>
               </div>
-              <div class="color-swatch purple">
+
+              <div class="color-swatch swatch-purple">
                 <span class="hex">#6c5ce7</span>
                 <span class="name">Titres</span>
               </div>
-              <div class="color-swatch dark-text">
+
+              <div class="color-swatch swatch-text">
                 <span class="hex">#eaeaea</span>
                 <span class="name">Texte</span>
               </div>
@@ -237,19 +250,22 @@
               jaune pour le contraste et les interactions.
             </p>
             <div class="color-palette">
-              <div class="color-swatch purple">
+              <div class="color-swatch swatch-purple">
                 <span class="hex">#6c5ce7</span>
                 <span class="name">Primaire</span>
               </div>
-              <div class="color-swatch light-purple">
+
+              <div class="color-swatch swatch-light-purple">
                 <span class="hex">#6d76ce</span>
                 <span class="name">Secondaire</span>
               </div>
-              <div class="color-swatch yellow">
+
+              <div class="color-swatch swatch-yellow">
                 <span class="hex">#f1c40f</span>
                 <span class="name">Accent</span>
               </div>
-              <div class="color-swatch dark-yellow">
+
+              <div class="color-swatch swatch-dark-yellow">
                 <span class="hex">#f39c12</span>
                 <span class="name">Hover</span>
               </div>
@@ -271,9 +287,27 @@
       <section id="avancée" class="detail-section">
         <div class="content-card full-width">
           <h2>Avancée du projet</h2>
-          <p>Images de l'évolution à venir.</p>
-          <div class="placeholder-img">
-            <p>Capture d'écran v1.0 (Coming Soon)</p>
+          <p>Voici un aperçu de l'interface actuelle (v1.0) :</p>
+
+          <div class="project-gallery">
+            <div class="gallery-item">
+              <img
+                src="assets/portfolio-preview.png"
+                alt="Aperçu du portfolio 1"
+                loading="lazy" />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="assets/portfolio-preview.png"
+                alt="Aperçu du portfolio 2"
+                loading="lazy" />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="assets/portfolio-preview.png"
+                alt="Aperçu du portfolio 3"
+                loading="lazy" />
+            </div>
           </div>
         </div>
       </section>
@@ -367,5 +401,9 @@
         </a>
       </section>
     </footer>
+    <div id="lightbox" class="lightbox">
+      <span class="close-lightbox">&times;</span>
+      <img class="lightbox-content" id="lightbox-img" alt="Vue agrandie" />
+    </div>
   </body>
 </html>
