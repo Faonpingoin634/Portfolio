@@ -48,7 +48,21 @@
   <body>
     <header>
       <nav class="navbar">
-        <div class="logo">Louka<span>.</span></div>
+        <div class="logo" style="position: relative; width: 60px">
+          <img
+            src="assets/logo.png"
+            alt="Logo Louka"
+            style="
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              height: 65px; 
+              width: auto; 
+              max-width: none; 
+              z-index: 100; 
+            " />
+        </div>
 
         <div class="burger-menu" id="burger-menu">
           <svg
