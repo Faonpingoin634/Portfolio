@@ -1,234 +1,280 @@
-document.addEventListener("DOMContentLoaded", () => {
-  /*  1. GESTION DU THÈME (Dark / Light Mode)*/
-  const toggle = document.getElementById("theme-toggle");
+/**
+ * 1. Gestionnaire de Thème (Dark/Light Mode)
+ */
+class ThemeManager {
+  constructor(toggleId) {
+    this.toggle = document.getElementById(toggleId);
+    if (this.toggle) this.init();
+  }
 
-  if (toggle) {
-    if (document.documentElement.classList.contains("dark-mode")) {
-      toggle.checked = true;
+  init() {
+    this.toggle.checked =
+      document.documentElement.classList.contains("dark-mode");
+    this.toggle.addEventListener("change", () => this.toggleTheme());
+  }
+
+  toggleTheme() {
+    const isDark = this.toggle.checked;
+    document.documentElement.classList.toggle("dark-mode", isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  }
+}
+
+/**
+ * 2. Gestionnaire de Navigation (Menu Burger Mobile)
+ */
+class NavigationManager {
+  constructor(burgerId, navId) {
+    this.burgerMenu = document.getElementById(burgerId);
+    this.navLinks = document.getElementById(navId);
+    if (this.burgerMenu && this.navLinks) this.init();
+  }
+
+  init() {
+    this.burgerMenu.addEventListener("click", () => this.toggleMenu());
+
+    this.navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => this.closeMenu());
+    });
+  }
+
+  toggleMenu() {
+    this.navLinks.classList.toggle("mobile-menu");
+    document.body.classList.toggle("no-scroll");
+  }
+
+  closeMenu() {
+    this.navLinks.classList.remove("mobile-menu");
+    document.body.classList.remove("no-scroll");
+  }
+}
+
+/**
+ * 3. Système de Filtrage des Projets
+ */
+class ProjectFilter {
+  constructor(btnSelector, cardSelector, gridSelector) {
+    this.buttons = document.querySelectorAll(btnSelector);
+    this.cards = document.querySelectorAll(cardSelector);
+    this.grid = document.querySelector(gridSelector);
+
+    if (this.buttons.length > 0 && this.grid) this.init();
+  }
+
+  init() {
+    this.createNoResultMessage();
+    this.buttons.forEach((btn) => {
+      btn.addEventListener("click", (e) =>
+        this.filterProjects(e.currentTarget),
+      );
+    });
+  }
+
+  createNoResultMessage() {
+    this.noResultMsg = document.createElement("div");
+    this.noResultMsg.className = "no-result-msg hide";
+    this.noResultMsg.innerHTML =
+      "<p>Aucun projet trouvé pour cette catégorie pour le moment.</p>";
+    this.grid.appendChild(this.noResultMsg);
+  }
+
+  filterProjects(clickedBtn) {
+    document.querySelector(".filter-btn.active")?.classList.remove("active");
+    clickedBtn.classList.add("active");
+
+    const filterValue = clickedBtn.dataset.filter;
+    let visibleCount = 0;
+
+    this.cards.forEach((card) => {
+      const tags = card.dataset.tags || "";
+      const isMatch = filterValue === "all" || tags.includes(filterValue);
+
+      card.classList.toggle("hide", !isMatch);
+      if (isMatch) visibleCount++;
+    });
+
+    this.noResultMsg.classList.toggle("hide", visibleCount > 0);
+  }
+}
+
+/**
+ * 4. Gestionnaire du Formulaire de Contact
+ */
+class ContactForm {
+  constructor(formId, emailId, statusId) {
+    this.form = document.getElementById(formId);
+    this.emailInput = document.getElementById(emailId);
+    this.status = document.getElementById(statusId);
+
+    if (this.form && this.status) this.init();
+  }
+
+  init() {
+    if (this.emailInput) {
+      this.emailInput.addEventListener("input", (e) =>
+        this.validateEmail(e.target),
+      );
     }
-
-    toggle.addEventListener("change", () => {
-      if (toggle.checked) {
-        document.documentElement.classList.add("dark-mode");
-        localStorage.setItem("theme", "dark");
-      } else {
-        document.documentElement.classList.remove("dark-mode");
-        localStorage.setItem("theme", "light");
-      }
-    });
+    this.form.addEventListener("submit", (e) => this.handleSubmit(e));
   }
 
-  /*2. MENU BURGER (Mobile) */
-  const burgerMenu = document.getElementById("burger-menu");
-  const navLinks = document.getElementById("nav-links");
+  validateEmail(input) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValid = emailRegex.test(input.value);
 
-  if (burgerMenu && navLinks) {
-    burgerMenu.addEventListener("click", () => {
-      navLinks.classList.toggle("mobile-menu");
-      document.body.classList.toggle("no-scroll");
-    });
+    input.classList.toggle("input-valid", isValid && input.value !== "");
+    input.classList.toggle("input-invalid", !isValid && input.value !== "");
+  }
 
-    const menuLinks = navLinks.querySelectorAll("a");
-    menuLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("mobile-menu");
-        document.body.classList.remove("no-scroll");
+  async handleSubmit(event) {
+    event.preventDefault();
+    const data = new FormData(this.form);
+
+    this.updateStatus("Envoi en cours...", "loading");
+
+    try {
+      const response = await fetch(this.form.action, {
+        method: this.form.method,
+        body: data,
+        headers: { Accept: "application/json" },
       });
-    });
-  }
 
-  /* 3. FILTRES PROJETS (Page Accueil) */
-  const filterButtons = document.querySelectorAll(".filter-btn");
-  const projectCards = document.querySelectorAll(".project-card");
-  const projectGrid = document.querySelector(".project-grid");
-
-  if (filterButtons.length > 0 && projectGrid) {
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        filterButtons.forEach((btn) => btn.classList.remove("active"));
-        button.classList.add("active");
-
-        const filterValue = button.getAttribute("data-filter");
-        let visibleCount = 0;
-
-        projectCards.forEach((card) => {
-          const tags = card.getAttribute("data-tags");
-          const tagsArray = tags ? tags.split(" ") : [];
-
-          if (filterValue === "all" || tagsArray.includes(filterValue)) {
-            card.classList.remove("hide");
-            visibleCount++;
-          } else {
-            card.classList.add("hide");
-          }
-        });
-
-        let noResultMsg = document.getElementById("no-result-msg");
-
-        if (visibleCount === 0) {
-          if (!noResultMsg) {
-            noResultMsg = document.createElement("div");
-            noResultMsg.id = "no-result-msg";
-            noResultMsg.innerHTML =
-              "<p>Aucun projet trouvé pour cette catégorie pour le moment.</p>";
-            // Styles injectés dynamiquement
-            Object.assign(noResultMsg.style, {
-              gridColumn: "1 / -1",
-              textAlign: "center",
-              padding: "2rem",
-              color: "var(--text-color)",
-            });
-            projectGrid.appendChild(noResultMsg);
-          }
-        } else {
-          if (noResultMsg) {
-            noResultMsg.remove();
-          }
-        }
-      });
-    });
-  }
-
-  /*  4. FORMULAIRE DE CONTACT (Validation & Envoi)*/
-
-  const emailInput = document.getElementById("email");
-  if (emailInput) {
-    emailInput.addEventListener("input", (e) => {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(e.target.value)) {
-        emailInput.style.borderColor = "red";
+      if (response.ok) {
+        this.updateStatus("Merci ! Ton message a bien été envoyé.", "success");
+        this.form.reset();
+        this.emailInput?.classList.remove("input-valid", "input-invalid");
       } else {
-        emailInput.style.borderColor = "green";
+        const dataJson = await response.json();
+        const errorMsg = Object.hasOwn(dataJson, "errors")
+          ? dataJson.errors.map((err) => err.message).join(", ")
+          : "Oups ! Il y a eu un problème lors de l'envoi.";
+        this.updateStatus(errorMsg, "error");
       }
-    });
+    } catch (error) {
+      this.updateStatus("Oups ! Il y a eu un problème réseau.", "error");
+    }
   }
 
-  const form = document.getElementById("my-form");
-  const status = document.getElementById("my-form-status");
+  updateStatus(message, type) {
+    this.status.className = `form-status ${type}`;
+    this.status.textContent = message;
+  }
+}
 
-  if (form && status) {
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const data = new FormData(event.target);
+/**
+ * 5. Observateur de Scroll (Animations avec IntersectionObserver)
+ */
+class ScrollObserver {
+  constructor(staggerSelectors, revealSelector) {
+    this.staggerLists = document.querySelectorAll(staggerSelectors);
+    this.revealElements = document.querySelectorAll(revealSelector);
 
-      try {
-        const response = await fetch(event.target.action, {
-          method: form.method,
-          body: data,
-          headers: {
-            Accept: "application/json",
-          },
-        });
-
-        if (response.ok) {
-          status.innerHTML = "Merci ! Ton message a bien été envoyé.";
-          status.style.color = "var(--primary-color)"; // Utilise la couleur du thème (vert/violet)
-          form.reset();
-          if (emailInput) emailInput.style.borderColor = "var(--input-border)";
-        } else {
-          const dataJson = await response.json();
-          if (Object.hasOwn(dataJson, "errors")) {
-            status.innerHTML = dataJson["errors"]
-              .map((error) => error["message"])
-              .join(", ");
-          } else {
-            status.innerHTML = "Oups! Il y a eu un problème lors de l'envoi.";
-            status.style.color = "red";
-          }
-        }
-      } catch (error) {
-        status.innerHTML = "Oups! Il y a eu un problème réseau.";
-        status.style.color = "red";
-      }
-    });
+    if (this.revealElements.length > 0) this.init();
   }
 
-  /* 5. ANIMATION AU SCROLL (IntersectionObserver) */
+  init() {
+    this.setupStaggerDelays();
+    this.observeElements();
+  }
 
-  const staggerLists = document.querySelectorAll(
-    ".stagger-list, .project-grid, .cards-container"
-  );
-  if (staggerLists.length > 0) {
-    staggerLists.forEach((list) => {
-      const children = list.querySelectorAll(".reveal");
-      children.forEach((child, index) => {
+  setupStaggerDelays() {
+    this.staggerLists.forEach((list) => {
+      list.querySelectorAll(".reveal").forEach((child, index) => {
         child.style.setProperty("--delay", `${index * 0.1}s`);
       });
     });
   }
 
-  // B. Déclenchement de l'animation
-  const revealElements = document.querySelectorAll(".reveal");
+  observeElements() {
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -50px 0px" },
+    );
 
-  if (revealElements.length > 0) {
-    const revealOptions = {
-      threshold: 0.15,
-      rootMargin: "0px 0px -50px 0px",
-    };
+    this.revealElements.forEach((el) => observer.observe(el));
+  }
+}
 
-    const revealOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("reveal-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, revealOptions);
+/**
+ * 6. Gestionnaire de Lightbox (Zoom d'images)
+ */
+class LightboxManager {
+  constructor(lightboxId, imgId, closeSelector, imageSelectors) {
+    this.lightbox = document.getElementById(lightboxId);
+    this.lightboxImg = document.getElementById(imgId);
+    this.closeBtn = document.querySelector(closeSelector);
+    this.images = document.querySelectorAll(imageSelectors);
 
-    revealElements.forEach((el) => {
-      revealOnScroll.observe(el);
-    });
+    if (this.lightbox && this.lightboxImg && this.images.length > 0)
+      this.init();
   }
 
-  /* 6. LIGHTBOX (Zoom Images)*/
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const closeBtn = document.querySelector(".close-lightbox");
+  init() {
+    this.images.forEach((img) => {
+      img.style.cursor = "zoom-in";
+      img.addEventListener("click", (e) => this.open(e, img));
+    });
 
-  const galleryImages = document.querySelectorAll(
-    ".project-gallery img, .card img, .pygame-screen img"
-  );
+    this.closeBtn?.addEventListener("click", () => this.close());
 
-  if (lightbox && lightboxImg) {
-    if (galleryImages.length > 0) {
-      galleryImages.forEach((img) => {
-        if (
-          !img.classList.contains("tech-icon") &&
-          !img.classList.contains("icon")
-        ) {
-          img.style.cursor = "zoom-in";
-          img.addEventListener("click", (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-
-            lightbox.classList.add("active");
-            lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt;
-            document.body.classList.add("no-scroll");
-          });
-        }
-      });
-    }
-
-    if (closeBtn) {
-      closeBtn.addEventListener("click", () => {
-        lightbox.classList.remove("active");
-        document.body.classList.remove("no-scroll");
-      });
-    }
-
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
-        lightbox.classList.remove("active");
-        document.body.classList.remove("no-scroll");
-      }
+    this.lightbox.addEventListener("click", (e) => {
+      if (e.target === this.lightbox) this.close();
     });
 
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && lightbox.classList.contains("active")) {
-        lightbox.classList.remove("active");
-        document.body.classList.remove("no-scroll");
+      if (e.key === "Escape" && this.lightbox.classList.contains("active")) {
+        this.close();
       }
     });
   }
+
+  open(event, imgElement) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    this.lightboxImg.src = imgElement.src;
+    this.lightboxImg.alt = imgElement.alt || "Image en grand";
+    this.lightbox.classList.add("active");
+    document.body.classList.add("no-scroll");
+  }
+
+  close() {
+    this.lightbox.classList.remove("active");
+    document.body.classList.remove("no-scroll");
+  }
+}
+
+/**
+ * =========================================
+ * APPLICATION PRINCIPALE (Facade Pattern)
+ * =========================================
+ */
+class App {
+  static init() {
+    new ThemeManager("theme-toggle");
+    new NavigationManager("burger-menu", "nav-links");
+    new ProjectFilter(".filter-btn", ".project-card", ".project-grid");
+    new ContactForm("my-form", "email", "my-form-status");
+    new ScrollObserver(
+      ".stagger-list, .project-grid, .cards-container",
+      ".reveal",
+    );
+    new LightboxManager(
+      "lightbox",
+      "lightbox-img",
+      ".close-lightbox",
+      ".project-gallery img:not(.tech-icon):not(.icon), .card img:not(.tech-icon):not(.icon), .pygame-screen img:not(.tech-icon):not(.icon)",
+    );
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  App.init();
 });
