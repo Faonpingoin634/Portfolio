@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projet Maquettage JS — Louka</title>
+    <title>Projet Bot Discord — Louka</title>
 
     <meta
       name="description"
-      content="Découvrez mon outil de maquettage web interactif conçu avec JavaScript et Bootstrap. Création de layout dynamique et manipulation du DOM." />
+      content="Développement d'un Bot Discord en Python (Discord.py) pour la gestion scolaire : rappels de devoirs, tâches asynchrones et hébergement VPS." />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Inter:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet" />
 
     <script>
@@ -26,27 +26,25 @@
       }
     </script>
 
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" href="assets/logo_onglets.png" />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="icon" type="image/png" href="../../assets/logo_onglets.png" />
 
-    <link
-      rel="canonical"
-      href="https://www.louka-avenia.me/project_maquette.html" />
+    <link rel="canonical" href="https://www.louka-avenia.me/projets/bot-discord/" />
     <meta
       property="og:url"
-      content="https://www.louka-avenia.me/project_maquette.html" />
+      content="https://www.louka-avenia.me/projets/bot-discord/" />
     <meta
       property="og:image"
       content="https://www.louka-avenia.me/assets/moi.jpg" />
 
-    <script src="main.js" defer></script>
+    <script src="../../main.js" defer></script>
   </head>
   <body>
     <header>
       <nav class="navbar">
         <div class="logo logo-container">
-          <a href="index.html">
-            <img src="assets/logo.png" alt="Logo Louka" class="logo-img" />
+          <a href="../../index.html">
+            <img src="../../assets/logo.png" alt="Logo Louka" class="logo-img" />
           </a>
         </div>
 
@@ -68,10 +66,10 @@
         </div>
 
         <ul class="nav-links" id="nav-links">
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="index.html#projects">Projets</a></li>
-          <li><a href="index.html#skills">Compétences</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="../../index.html">Accueil</a></li>
+          <li><a href="../../index.html#projects">Projets</a></li>
+          <li><a href="../../index.html#skills">Compétences</a></li>
+          <li><a href="../../index.html#contact">Contact</a></li>
         </ul>
 
         <label class="toggle">
@@ -110,16 +108,16 @@
       </nav>
 
       <section class="hero-project">
-        <h1>Outil de <span>Maquettage</span></h1>
-        <p>Générateur d'interfaces web via Bootstrap & JS</p>
+        <h1>Bot Discord <span>Scolaire</span></h1>
+        <p>Automatisation Python & Gestion de tâches asynchrones</p>
 
         <div class="hero-actions">
-          <a href="index.html#projects" class="btn">Voir les autres projets</a>
+          <a href="../../index.html#projects" class="btn">Voir les autres projets</a>
           <a
-            href="https://github.com/Faonpingoin634/Maquette-en-Js-Bootstrap"
+            href="https://github.com/Faonpingoin634/Bot-Discord"
             target="_blank"
             class="btn btn-github">
-            Voir le code sur GitHub
+            Voir sur GitHub
           </a>
         </div>
       </section>
@@ -130,41 +128,50 @@
         <div class="content-card full-width">
           <h2>Le Contexte</h2>
           <p>
-            Ce projet est né de la volonté de maîtriser la manipulation du DOM
-            (Document Object Model) sans utiliser de frameworks lourds comme
-            React ou Vue dans un premier temps. L'objectif était de créer un
-            éditeur visuel permettant de générer des mises en page web
-            dynamiquement.
+            Pour faciliter l'organisation de ma classe, j'ai développé un bot
+            Discord collaboratif surnommé "Michel". Le problème initial était
+            simple : les informations sur les devoirs étaient dispersées et
+            souvent oubliées.
           </p>
           <p>
-            En s'appuyant sur le système de grille robuste de
-            <strong>Bootstrap</strong>, cet outil permet à l'utilisateur de
-            construire des pages web bloc par bloc directement depuis le
-            navigateur, offrant une approche "No-Code" simplifiée développée
-            entièrement en JavaScript natif.
+            Ce projet m'a permis de travailler sur l'hébergement continu (24/7)
+            via <strong>Discloud</strong> et d'approfondir ma gestion des dates
+            et des tâches planifiées (Background Tasks) en Python. Le bot permet
+            à n'importe quel élève d'ajouter un devoir, notifie automatiquement
+            la classe à l'approche de l'échéance, et fait le ménage tout seul.
           </p>
         </div>
       </section>
 
-      <section class="detail-section row-layout">
+      <section id="features" class="detail-section row-layout">
         <div class="content-card half-width">
-          <h2>Les Objectifs</h2>
+          <h2>Fonctionnalités Développées</h2>
           <ul class="styled-list">
             <li>
-              <strong>DOM Manipulation :</strong> Création et injection
-              d'éléments en Vanilla JS.
+              <strong>Système de Rappels Auto :</strong> Une boucle asynchrone
+              (<code>tasks.loop</code>) vérifie chaque heure si un devoir arrive
+              à échéance (J-7 et J-1) et envoie une alerte.
             </li>
             <li>
-              <strong>Logique de Grille :</strong> Intégration dynamique des
-              classes Bootstrap (Rows/Cols).
+              <strong>Nettoyage Automatique :</strong> Le bot supprime tout seul
+              de la base de données les devoirs dont la date est passée (J+1)
+              pour garder la liste propre.
             </li>
             <li>
-              <strong>Event Handling :</strong> Gestion complexe des événements
-              utilisateurs (click, input).
+              <strong>Commandes Slash :</strong> Utilisation de
+              <code>app_commands</code> pour une interface moderne
+              (<code>/ajouter</code>, <code>/devoir</code>,
+              <code>/supprimer</code>).
             </li>
             <li>
-              <strong>UX/UI :</strong> Création d'une interface d'édition
-              intuitive et réactive.
+              <strong>Persistance JSON :</strong> Sauvegarde locale des devoirs
+              pour éviter la perte de données en cas de redémarrage du bot.
+            </li>
+            <li>
+              <strong>Gestion Temporelle :</strong> Utilisation de la librairie
+              <code>pytz</code>
+              pour gérer le fuseau horaire de Paris et éviter les décalages
+              d'heures.
             </li>
           </ul>
         </div>
@@ -175,137 +182,120 @@
             <li>
               <img
                 class="tech-icon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
-                alt="JavaScript" />
-              <span>JavaScript (ES6+)</span>
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                alt="Python" />
+              <span>Python : Langage principal</span>
             </li>
             <li>
               <img
                 class="tech-icon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
-                alt="Bootstrap" />
-              <span>Bootstrap 5</span>
+                src="https://upload.wikimedia.org/wikipedia/fr/4/4f/Discord_Logo_sans_texte.svg"
+                alt="Discord.py" />
+              <span>Discord.py : API Wrapper</span>
             </li>
             <li>
               <img
                 class="tech-icon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
-                alt="HTML5" />
-              <span>HTML5 DOM API</span>
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/json/json-original.svg"
+                alt="JSON" />
+              <span>JSON : Base de données fichier</span>
             </li>
             <li>
-              <img
+              <svg
                 class="tech-icon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
-                alt="CSS3" />
-              <span>CSS3 Custom</span>
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#6c5ce7"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+              </svg>
+              <span>Discloud : Hébergement VPS</span>
             </li>
           </ul>
         </div>
       </section>
 
-      <section id="features" class="detail-section">
+      <section id="defis" class="detail-section">
         <div class="content-card full-width">
-          <h2>Fonctionnalités & Défis</h2>
+          <h2>Les Défis Techniques</h2>
           <p>
-            L'application permet de simuler un environnement de création de site
-            web avec une logique parent/enfant stricte.
+            <strong>Boucles Asynchrones :</strong> J'ai dû implémenter
+            <code>@tasks.loop(hours=1)</code>
+            pour créer un processus d'arrière-plan qui surveille les dates sans
+            bloquer les commandes du bot. C'était essentiel pour que le bot
+            reste réactif tout en faisant ses vérifications.
           </p>
-
-          <div class="da-block" style="margin-top: 1.5rem">
-            <h3>Fonctionnalités Clés</h3>
-            <ul class="styled-list">
-              <li>
-                <strong>Création Dynamique :</strong> Injection de boutons,
-                inputs et conteneurs via une interface de commande.
-              </li>
-              <li>
-                <strong>Gestion de la Grille :</strong> Visualisation immédiate
-                de l'empilement des éléments (`col-md-*`).
-              </li>
-              <li>
-                <strong>Édition en Temps Réel :</strong> Modification des styles
-                (couleur, bordure, taille) des éléments sélectionnés.
-              </li>
-            </ul>
-          </div>
-
-          <div class="da-block" style="margin-top: 1.5rem">
-            <h3>Le Défi Technique</h3>
-            <p>
-              Le défi majeur a été la <strong>sélection contextuelle</strong> :
-              pouvoir cliquer sur un élément généré dynamiquement pour le
-              cibler, puis appliquer des modifications uniquement à cet élément
-              spécifique sans affecter ses voisins, tout en gérant l'imbrication
-              correcte dans le DOM.
-            </p>
-          </div>
+          <p>
+            <strong>Synchronisation des Commandes :</strong> Le passage aux
+            "Slash Commands" nécessite une étape de synchronisation avec l'API
+            de Discord (<code>bot.tree.sync</code>). J'ai mis en place un script
+            de démarrage qui synchronise automatiquement les commandes avec le
+            serveur de la classe au lancement.
+          </p>
+          <p>
+            <strong>Parsing de Dates :</strong> Gérer les entrées utilisateurs
+            est complexe. J'ai utilisé <code>datetime.strptime</code> pour
+            convertir les chaînes de caractères (ex: "20/12/2026") en objets
+            dates manipulables pour les calculs de délais.
+          </p>
         </div>
       </section>
 
-      <section id="ui" class="detail-section">
+      <section id="avancée" class="detail-section">
         <div class="content-card full-width">
-          <h2>Interface & Styles</h2>
-          <div class="da-block">
-            <p>
-              L'interface repose sur la clarté de Bootstrap combinée à une
-              touche personnalisée pour les zones d'interaction.
-            </p>
-            <div class="color-palette">
-              <div class="color-swatch swatch-bootstrap">
-                <span class="hex">#7952B3</span>
-                <span class="name">Bootstrap JS</span>
+          <h2>Aperçu Discord</h2>
+
+          <div class="placeholder-img discord-mockup">
+            <div class="discord-msg">
+              <div class="discord-avatar user"></div>
+              <div class="discord-content">
+                <div class="discord-header">
+                  <span class="discord-username">Louka</span>
+                  <span class="discord-date">Hier à 14:30</span>
+                </div>
+                <p class="discord-text">
+                  /ajouter date:20/12/2026 description:Projet Python
+                </p>
               </div>
-              <div class="color-swatch swatch-canvas">
-                <span class="hex">#F8F9FA</span>
-                <span class="name">Canvas</span>
+            </div>
+
+            <div class="discord-msg">
+              <div class="discord-avatar bot"></div>
+              <div class="discord-content">
+                <div class="discord-header">
+                  <span class="discord-username">Michel</span>
+                  <span class="discord-badge">BOT</span>
+                  <span class="discord-date">Hier à 14:30</span>
+                </div>
+                <p class="discord-text">
+                  ✅ Devoir ajouté pour le <strong>20/12/2026</strong> : Projet
+                  Python
+                </p>
               </div>
-              <div class="color-swatch swatch-ui-accent">
-                <span class="hex">#6C5CE7</span>
-                <span class="name">UI Accent</span>
+            </div>
+
+            <div class="discord-divider"></div>
+
+            <div class="discord-msg">
+              <div class="discord-avatar bot"></div>
+              <div class="discord-content">
+                <div class="discord-header">
+                  <span class="discord-username">Michel</span>
+                  <span class="discord-badge">BOT</span>
+                  <span class="discord-date">Aujourd'hui à 09:00</span>
+                </div>
+                <p class="discord-text">
+                  🚨 Urgent : 'Projet Python' pour DEMAIN !
+                </p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section class="detail-section">
-        <div class="content-card full-width">
-          <h2>Aperçu de l'interface</h2>
-          <p>Voici un aperçu de l'outil en action :</p>
-
-          <div class="project-gallery">
-            <div class="gallery-item">
-              <img
-                src="assets/maquette-main.png"
-                alt="Interface principale de l'outil"
-                loading="lazy"
-                onerror="
-                  this.src =
-                    'https://placehold.co/600x400/6c5ce7/ffffff?text=Interface+Maquettage'
-                " />
-            </div>
-            <div class="gallery-item">
-              <img
-                src="assets/maquette-grid.png"
-                alt="Gestion de la grille Bootstrap"
-                loading="lazy"
-                onerror="
-                  this.src =
-                    'https://placehold.co/600x400/7952b3/ffffff?text=Gestion+Grille+Bootstrap'
-                " />
-            </div>
-            <div class="gallery-item">
-              <img
-                src="assets/maquette-edit.png"
-                alt="Menu d'édition des propriétés"
-                loading="lazy"
-                onerror="
-                  this.src =
-                    'https://placehold.co/600x400/f8f9fa/212529?text=Edition+Proprietes'
-                " />
-            </div>
-          </div>
+          <p style="text-align: center; margin-top: 0.5rem; font-style: italic">
+            Simulation des interactions et des rappels automatiques.
+          </p>
         </div>
       </section>
     </main>
@@ -313,7 +303,7 @@
     <footer>
       <p>© 2025 Louka — Tous droits réservés</p>
       <p class="footer-legal">
-        <a href="mentions-legales.html">Mentions Légales</a>
+        <a href="../../mentions-legales/">Mentions Légales</a>
       </p>
       <section class="Socialmedia">
         <a

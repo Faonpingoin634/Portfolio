@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projet Studio Onyx — Louka</title>
+    <title>Projet Portfolio — Louka</title>
 
     <meta
       name="description"
-      content="Studio Onyx : PMS pour agences créatives. Architecture MVC en PHP/JSON sans SQL, design Luxe et modules JS ES6." />
+      content="Découvrez les coulisses de la création de ce portfolio : refonte de mon identité numérique, approche MVP et développement front-end moderne en HTML, CSS et JS." />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Inter:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet" />
 
     <script>
@@ -26,24 +26,27 @@
       }
     </script>
 
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" href="assets/logo_onglets.png" />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="icon" type="image/png" href="../../assets/logo_onglets.png" />
 
     <link
       rel="canonical"
-      href="https://www.louka-avenia.me/project_dashboard.html" />
+      href="https://www.louka-avenia.me/projets/portfolio/" />
     <meta
       property="og:url"
-      content="https://www.louka-avenia.me/project_dashboard.html" />
+      content="https://www.louka-avenia.me/projets/portfolio/" />
+    <meta
+      property="og:image"
+      content="https://www.louka-avenia.me/assets/moi.jpg" />
 
-    <script src="main.js" defer></script>
+    <script src="../../main.js" defer></script>
   </head>
   <body>
     <header>
       <nav class="navbar">
         <div class="logo logo-container">
-          <a href="index.html">
-            <img src="assets/logo.png" alt="Logo Louka" class="logo-img" />
+          <a href="../../index.html">
+            <img src="../../assets/logo.png" alt="Logo Louka" class="logo-img" />
           </a>
         </div>
 
@@ -65,10 +68,10 @@
         </div>
 
         <ul class="nav-links" id="nav-links">
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="index.html#projects">Projets</a></li>
-          <li><a href="index.html#skills">Compétences</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="../../index.html">Accueil</a></li>
+          <li><a href="../../index.html#projects">Projets</a></li>
+          <li><a href="../../index.html#skills">Compétences</a></li>
+          <li><a href="../../index.html#contact">Contact</a></li>
         </ul>
 
         <label class="toggle">
@@ -107,18 +110,13 @@
       </nav>
 
       <section class="hero-project">
-        <h1>Studio <span>Onyx</span></h1>
-        <p>PMS "Luxe" pour agences créatives</p>
+        <h1>Projet <span>Portfolio</span></h1>
+        <p>Refonte complète de mon identité numérique</p>
 
         <div class="hero-actions">
+          <a href="../../index.html#projects" class="btn">Voir les autres projets</a>
           <a
-            href="https://dashboard-puce-xi-24.vercel.app/login.php"
-            target="_blank"
-            class="btn"
-            >Voir le projet en ligne (Démo)</a
-          >
-          <a
-            href="https://github.com/Faonpingoin634/Dashboard"
+            href="https://github.com/Faonpingoin634/Portfolio"
             target="_blank"
             class="btn btn-github">
             Voir le code sur GitHub
@@ -130,51 +128,34 @@
     <main class="portfolio-main">
       <section id="contexte" class="detail-section">
         <div class="content-card full-width">
-          <h2>Le Concept</h2>
+          <h2>Le Contexte</h2>
           <p>
-            <strong>Studio Onyx</strong> est une solution de gestion de projet
-            (PMS) conçue spécifiquement pour les agences créatives exigeantes.
-            Alliant une esthétique "Luxe" (Noir & Or) à une architecture
-            technique modulaire, elle permet une centralisation fluide des
-            opérations : suivi budgétaire, pilotage des délais, répartition de
-            la charge équipe et analyse de la performance.
+            Dans le cadre de mes études, j’ai pris la décision de reconstruire
+            entièrement mon portfolio. L’ancien, bien qu’utile à ses débuts, ne
+            reflétait plus ni mon niveau actuel ni l’image professionnelle que
+            je souhaite transmettre. J’ai donc choisi de repartir de zéro et de
+            me fixer un défi : concevoir une nouvelle version plus moderne, plus
+            cohérente et surtout en adéquation avec mon identité visuelle.
           </p>
           <p>
-            L'objectif était de créer une expérience
-            <strong>SPA-like</strong> (Single Page Application) tout en
-            conservant un backend léger en PHP sans base de données SQL
-            complexe.
-            <em
-              >(La version en ligne est une démo à données figées pour des
-              raisons de sécurité).</em
-            >
+            Pour mener à bien ce projet, j’ai adopté une logique de Minimum
+            Viable Product (MVP). Plutôt que d’attendre qu’il soit parfaitement
+            abouti avant de le publier, j’ai fait le choix stratégique de le
+            mettre en ligne dans un état non finalisé. Cette approche me permet
+            d’assurer une visibilité rapide tout en continuant à l’améliorer au
+            fil du temps.
           </p>
         </div>
       </section>
 
       <section class="detail-section row-layout">
         <div class="content-card half-width">
-          <h2>Architecture Technique</h2>
+          <h2>Les Objectifs</h2>
           <ul class="styled-list">
-            <li>
-              <strong>MVC Simplifié :</strong> Architecture
-              Modèle-Vue-Contrôleur adaptée pour une maintenance aisée.
-            </li>
-            <li>
-              <strong>Backend PHP & JSON :</strong> API REST personnalisée qui
-              interagit avec une base de données NoSQL fichier-plat
-              (<code>data.json</code>) avec verrouillage de fichier
-              (<code>LOCK_EX</code>).
-            </li>
-            <li>
-              <strong>Frontend ES6 :</strong> Code JavaScript modulaire
-              (<code>api.js</code>, <code>ui.js</code>, <code>utils.js</code>)
-              pour la manipulation dynamique du DOM.
-            </li>
-            <li>
-              <strong>Sécurité :</strong> Authentification PHP via sessions et
-              protection des routes.
-            </li>
+            <li>Présenter mes compétences et réalisations</li>
+            <li>Attirer des clients pour des missions freelance</li>
+            <li>Améliorer ma visibilité en ligne</li>
+            <li>Créer une plateforme pour partager mes idées</li>
           </ul>
         </div>
 
@@ -184,58 +165,54 @@
             <li>
               <img
                 class="tech-icon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg"
-                alt="PHP" />
-              <span>PHP</span>
-            </li>
-            <li>
-              <img
-                class="tech-icon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
-                alt="JS" />
-              <span>JavaScript</span>
-            </li>
-            <li>
-              <img
-                class="tech-icon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/json/json-original.svg"
-                alt="JSON" />
-              <span>JSON</span>
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                alt="HTML5" />
+              <span>HTML5 : Structure sémantique</span>
             </li>
             <li>
               <img
                 class="tech-icon"
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
-                alt="CSS" />
-              <span>CSS</span>
+                alt="CSS3" />
+              <span>CSS3 : Design & Responsive</span>
+            </li>
+            <li>
+              <img
+                class="tech-icon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                alt="JavaScript" />
+              <span>JavaScript : Interactions</span>
+            </li>
+            <li>
+              <img
+                class="tech-icon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+                alt="Git" />
+              <span>Git & GitHub : Versionning</span>
             </li>
           </ul>
         </div>
       </section>
 
-      <section id="features" class="detail-section">
+      <section id="defis" class="detail-section">
         <div class="content-card full-width">
-          <h2>Fonctionnalités Clés</h2>
-          <div class="da-block">
-            <ul class="styled-list">
-              <li>
-                <strong>Calcul Automatique :</strong> Progression calculée en
-                temps réel <code>(Tâches Fait / Total) * 100</code>.
-              </li>
-              <li>
-                <strong>Matrice de Priorité :</strong> Classification visuelle
-                (Urgent, Haute, Moyenne, Basse) avec codes couleurs.
-              </li>
-              <li>
-                <strong>Overdue Logic :</strong> Détection automatique des
-                retards avec alertes visuelles ⚠️.
-              </li>
-              <li>
-                <strong>Dashboard Analytique :</strong> KPIs temps réel et
-                graphiques (Doughnut & Area Charts) pour la charge de travail.
-              </li>
-            </ul>
-          </div>
+          <h2>Les Défis Rencontrés</h2>
+          <p>
+            <strong>Design & UX :</strong> Le premier défi consistait à
+            concevoir une interface à la fois visuellement attrayante et
+            intuitive. Trouver l’équilibre entre esthétique, lisibilité et
+            fluidité de navigation s’est révélé complexe.
+          </p>
+          <p>
+            <strong>Responsivité :</strong> Il était essentiel que chaque
+            section, chaque élément graphique et chaque interaction s’adaptent
+            parfaitement à différents écrans : ordinateur, tablette et mobile.
+          </p>
+          <p>
+            <strong>Interactivité :</strong> L’intégration de fonctionnalités
+            interactives via JavaScript a représenté une étape formatrice pour
+            renforcer mes compétences Front-End.
+          </p>
         </div>
       </section>
 
@@ -244,25 +221,29 @@
           <h2>Direction Artistique</h2>
 
           <div class="da-block">
-            <h3>Mode Sombre (Onyx & Gold)</h3>
+            <h3>Mode Sombre</h3>
             <p>
-              L'identité principale repose sur le thème sombre. Il utilise une
-              nuance de noir très profond pour le fond et des gris foncés pour
-              détacher les cartes, le tout rehaussé par le "Premium Gold".
+              Pour le mode sombre, le violet principal est conservé pour les
+              titres afin de garder l'identité. Le fond passe au gris très foncé
+              (#0e1225) pour un contraste optimal avec le texte clair (#eaeaea).
             </p>
 
             <div class="color-palette">
-              <div class="color-swatch swatch-onyx-dark">
-                <span class="hex">#121212</span>
+              <div class="color-swatch swatch-dark-bg">
+                <span class="hex">#0E1225</span>
                 <span class="name">Fond</span>
               </div>
-              <div class="color-swatch swatch-onyx-card">
-                <span class="hex">#242424</span>
+              <div class="color-swatch swatch-dark-card">
+                <span class="hex">#2C2C3A</span>
                 <span class="name">Cartes</span>
               </div>
-              <div class="color-swatch swatch-onyx-gold">
-                <span class="hex">#C5A059</span>
-                <span class="name">Gold</span>
+              <div class="color-swatch swatch-purple">
+                <span class="hex">#6C5CE7</span>
+                <span class="name">Titres</span>
+              </div>
+              <div class="color-swatch swatch-text">
+                <span class="hex">#EAEAEA</span>
+                <span class="name">Texte</span>
               </div>
             </div>
           </div>
@@ -270,64 +251,75 @@
           <div class="da-block da-spacing">
             <h3>Mode Clair</h3>
             <p>
-              Le mode clair conserve l'élégance du projet en utilisant un blanc
-              cassé propre pour le contenu principal, tout en gardant des
-              contrastes forts avec du noir pur pour la navigation et les
-              actions principales.
+              Le mode clair utilise un dégradé de violets et deux teintes de
+              jaune pour le contraste et les interactions.
             </p>
-
             <div class="color-palette">
-              <div class="color-swatch swatch-onyx-light">
-                <span class="hex">#F8F9FA</span>
-                <span class="name">Fond Clair</span>
+              <div class="color-swatch swatch-purple">
+                <span class="hex">#6C5CE7</span>
+                <span class="name">Primaire</span>
               </div>
-              <div class="color-swatch swatch-onyx-black">
-                <span class="hex">#000000</span>
-                <span class="name">Premium Black</span>
+              <div class="color-swatch swatch-light-purple">
+                <span class="hex">#6D76CE</span>
+                <span class="name">Secondaire</span>
               </div>
-              <div class="color-swatch swatch-onyx-gold">
-                <span class="hex">#C5A059</span>
-                <span class="name">Gold</span>
+              <div class="color-swatch swatch-yellow">
+                <span class="hex">#F1C40F</span>
+                <span class="name">Accent</span>
+              </div>
+              <div class="color-swatch swatch-dark-yellow">
+                <span class="hex">#F39C12</span>
+                <span class="name">Hover</span>
               </div>
             </div>
+          </div>
+
+          <div class="da-block da-spacing">
+            <h3>Disposition & Structure</h3>
+            <p>
+              L'interface joue sur des cartes blanches (ou sombres selon le
+              thème) posées sur un fond neutre pour créer de la profondeur. La
+              mise en page utilise abondamment Flexbox et CSS Grid pour une
+              structure modulaire.
+            </p>
           </div>
         </div>
       </section>
 
-      <section class="detail-section">
+      <section id="avancée" class="detail-section">
         <div class="content-card full-width">
-          <h2>Aperçu de l'interface</h2>
-          <p>Voici un aperçu de l'interface Studio Onyx :</p>
+          <h2>Avancée du projet</h2>
+          <p>Voici un aperçu de l'interface actuelle (v1.0) :</p>
 
           <div class="project-gallery">
             <div class="gallery-item">
               <img
-                src="assets/dashboard-preview.png"
-                alt="Dashboard Studio Onyx - Vue Globale"
+                src="../../assets/portfolio-preview.png"
+                alt="Aperçu du portfolio 1"
                 loading="lazy"
                 onerror="
                   this.src =
-                    'https://placehold.co/600x400/121212/c5a059?text=Studio+Onyx+Dark+Mode'
+                    'https://placehold.co/600x400/6c5ce7/ffffff?text=Portfolio+V1'
                 " />
             </div>
             <div class="gallery-item">
               <img
-                src="assets/dashboard-mobile.png"
-                alt="Gestion des Tâches et Priorités"
+                src="../../assets/portfolio-preview.png"
+                alt="Aperçu du portfolio 2"
                 loading="lazy"
                 onerror="
                   this.src =
-                    'https://placehold.co/600x400/121212/c5a059?text=Mobile+View'
+                    'https://placehold.co/600x400/2c2c3a/ffffff?text=Mode+Sombre'
                 " />
             </div>
             <div class="gallery-item">
               <img
-                src="assets/dashboard-components.png"
-                alt="Login et Architecture"
+                src="../../assets/portfolio-preview.png"
+                alt="Aperçu du portfolio 3"
                 loading="lazy"
                 onerror="
                   this.src =
-                    'https://placehold.co/600x400/f8f9fa/000000?text=Light+Mode+Preview'
+                    'https://placehold.co/600x400/f5f6fa/2f3640?text=Mode+Clair'
                 " />
             </div>
           </div>
@@ -338,7 +330,7 @@
     <footer>
       <p>© 2025 Louka — Tous droits réservés</p>
       <p class="footer-legal">
-        <a href="mentions-legales.html">Mentions Légales</a>
+        <a href="../../mentions-legales/">Mentions Légales</a>
       </p>
       <section class="Socialmedia">
         <a
