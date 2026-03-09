@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projet Portfolio — Louka</title>
+    <title>Projet Maquettage JS — Louka</title>
 
     <meta
       name="description"
-      content="Découvrez les coulisses de la création de ce portfolio : refonte de mon identité numérique, approche MVP et développement front-end moderne en HTML, CSS et JS." />
+      content="Découvrez mon outil de maquettage web interactif conçu avec JavaScript et Bootstrap. Création de layout dynamique et manipulation du DOM." />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Inter:wght@400;600&display=swap"
       rel="stylesheet" />
 
     <script>
@@ -26,27 +26,27 @@
       }
     </script>
 
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" href="assets/logo_onglets.png" />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="icon" type="image/png" href="../../assets/logo_onglets.png" />
 
     <link
       rel="canonical"
-      href="https://www.louka-avenia.me/project_portfolio.html" />
+      href="https://www.louka-avenia.me/projets/maquette/" />
     <meta
       property="og:url"
-      content="https://www.louka-avenia.me/project_portfolio.html" />
+      content="https://www.louka-avenia.me/projets/maquette/" />
     <meta
       property="og:image"
       content="https://www.louka-avenia.me/assets/moi.jpg" />
 
-    <script src="main.js" defer></script>
+    <script src="../../main.js" defer></script>
   </head>
   <body>
     <header>
       <nav class="navbar">
         <div class="logo logo-container">
-          <a href="index.html">
-            <img src="assets/logo.png" alt="Logo Louka" class="logo-img" />
+          <a href="../../index.html">
+            <img src="../../assets/logo.png" alt="Logo Louka" class="logo-img" />
           </a>
         </div>
 
@@ -68,10 +68,10 @@
         </div>
 
         <ul class="nav-links" id="nav-links">
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="index.html#projects">Projets</a></li>
-          <li><a href="index.html#skills">Compétences</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="../../index.html">Accueil</a></li>
+          <li><a href="../../index.html#projects">Projets</a></li>
+          <li><a href="../../index.html#skills">Compétences</a></li>
+          <li><a href="../../index.html#contact">Contact</a></li>
         </ul>
 
         <label class="toggle">
@@ -110,13 +110,13 @@
       </nav>
 
       <section class="hero-project">
-        <h1>Projet <span>Portfolio</span></h1>
-        <p>Refonte complète de mon identité numérique</p>
+        <h1>Outil de <span>Maquettage</span></h1>
+        <p>Générateur d'interfaces web via Bootstrap & JS</p>
 
         <div class="hero-actions">
-          <a href="index.html#projects" class="btn">Voir les autres projets</a>
+          <a href="../../index.html#projects" class="btn">Voir les autres projets</a>
           <a
-            href="https://github.com/Faonpingoin634/Portfolio"
+            href="https://github.com/Faonpingoin634/Maquette-en-Js-Bootstrap"
             target="_blank"
             class="btn btn-github">
             Voir le code sur GitHub
@@ -130,20 +130,18 @@
         <div class="content-card full-width">
           <h2>Le Contexte</h2>
           <p>
-            Dans le cadre de mes études, j’ai pris la décision de reconstruire
-            entièrement mon portfolio. L’ancien, bien qu’utile à ses débuts, ne
-            reflétait plus ni mon niveau actuel ni l’image professionnelle que
-            je souhaite transmettre. J’ai donc choisi de repartir de zéro et de
-            me fixer un défi : concevoir une nouvelle version plus moderne, plus
-            cohérente et surtout en adéquation avec mon identité visuelle.
+            Ce projet est né de la volonté de maîtriser la manipulation du DOM
+            (Document Object Model) sans utiliser de frameworks lourds comme
+            React ou Vue dans un premier temps. L'objectif était de créer un
+            éditeur visuel permettant de générer des mises en page web
+            dynamiquement.
           </p>
           <p>
-            Pour mener à bien ce projet, j’ai adopté une logique de Minimum
-            Viable Product (MVP). Plutôt que d’attendre qu’il soit parfaitement
-            abouti avant de le publier, j’ai fait le choix stratégique de le
-            mettre en ligne dans un état non finalisé. Cette approche me permet
-            d’assurer une visibilité rapide tout en continuant à l’améliorer au
-            fil du temps.
+            En s'appuyant sur le système de grille robuste de
+            <strong>Bootstrap</strong>, cet outil permet à l'utilisateur de
+            construire des pages web bloc par bloc directement depuis le
+            navigateur, offrant une approche "No-Code" simplifiée développée
+            entièrement en JavaScript natif.
           </p>
         </div>
       </section>
@@ -152,10 +150,22 @@
         <div class="content-card half-width">
           <h2>Les Objectifs</h2>
           <ul class="styled-list">
-            <li>Présenter mes compétences et réalisations</li>
-            <li>Attirer des clients pour des missions freelance</li>
-            <li>Améliorer ma visibilité en ligne</li>
-            <li>Créer une plateforme pour partager mes idées</li>
+            <li>
+              <strong>DOM Manipulation :</strong> Création et injection
+              d'éléments en Vanilla JS.
+            </li>
+            <li>
+              <strong>Logique de Grille :</strong> Intégration dynamique des
+              classes Bootstrap (Rows/Cols).
+            </li>
+            <li>
+              <strong>Event Handling :</strong> Gestion complexe des événements
+              utilisateurs (click, input).
+            </li>
+            <li>
+              <strong>UX/UI :</strong> Création d'une interface d'édition
+              intuitive et réactive.
+            </li>
           </ul>
         </div>
 
@@ -165,161 +175,134 @@
             <li>
               <img
                 class="tech-icon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                alt="JavaScript" />
+              <span>JavaScript (ES6+)</span>
+            </li>
+            <li>
+              <img
+                class="tech-icon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
+                alt="Bootstrap" />
+              <span>Bootstrap 5</span>
+            </li>
+            <li>
+              <img
+                class="tech-icon"
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
                 alt="HTML5" />
-              <span>HTML5 : Structure sémantique</span>
+              <span>HTML5 DOM API</span>
             </li>
             <li>
               <img
                 class="tech-icon"
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
                 alt="CSS3" />
-              <span>CSS3 : Design & Responsive</span>
-            </li>
-            <li>
-              <img
-                class="tech-icon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
-                alt="JavaScript" />
-              <span>JavaScript : Interactions</span>
-            </li>
-            <li>
-              <img
-                class="tech-icon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
-                alt="Git" />
-              <span>Git & GitHub : Versionning</span>
+              <span>CSS3 Custom</span>
             </li>
           </ul>
         </div>
       </section>
 
-      <section id="defis" class="detail-section">
+      <section id="features" class="detail-section">
         <div class="content-card full-width">
-          <h2>Les Défis Rencontrés</h2>
+          <h2>Fonctionnalités & Défis</h2>
           <p>
-            <strong>Design & UX :</strong> Le premier défi consistait à
-            concevoir une interface à la fois visuellement attrayante et
-            intuitive. Trouver l’équilibre entre esthétique, lisibilité et
-            fluidité de navigation s’est révélé complexe.
+            L'application permet de simuler un environnement de création de site
+            web avec une logique parent/enfant stricte.
           </p>
-          <p>
-            <strong>Responsivité :</strong> Il était essentiel que chaque
-            section, chaque élément graphique et chaque interaction s’adaptent
-            parfaitement à différents écrans : ordinateur, tablette et mobile.
-          </p>
-          <p>
-            <strong>Interactivité :</strong> L’intégration de fonctionnalités
-            interactives via JavaScript a représenté une étape formatrice pour
-            renforcer mes compétences Front-End.
-          </p>
+
+          <div class="da-block" style="margin-top: 1.5rem">
+            <h3>Fonctionnalités Clés</h3>
+            <ul class="styled-list">
+              <li>
+                <strong>Création Dynamique :</strong> Injection de boutons,
+                inputs et conteneurs via une interface de commande.
+              </li>
+              <li>
+                <strong>Gestion de la Grille :</strong> Visualisation immédiate
+                de l'empilement des éléments (`col-md-*`).
+              </li>
+              <li>
+                <strong>Édition en Temps Réel :</strong> Modification des styles
+                (couleur, bordure, taille) des éléments sélectionnés.
+              </li>
+            </ul>
+          </div>
+
+          <div class="da-block" style="margin-top: 1.5rem">
+            <h3>Le Défi Technique</h3>
+            <p>
+              Le défi majeur a été la <strong>sélection contextuelle</strong> :
+              pouvoir cliquer sur un élément généré dynamiquement pour le
+              cibler, puis appliquer des modifications uniquement à cet élément
+              spécifique sans affecter ses voisins, tout en gérant l'imbrication
+              correcte dans le DOM.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section id="da" class="detail-section">
+      <section id="ui" class="detail-section">
         <div class="content-card full-width">
-          <h2>Direction Artistique</h2>
-
+          <h2>Interface & Styles</h2>
           <div class="da-block">
-            <h3>Mode Sombre</h3>
             <p>
-              Pour le mode sombre, le violet principal est conservé pour les
-              titres afin de garder l'identité. Le fond passe au gris très foncé
-              (#0e1225) pour un contraste optimal avec le texte clair (#eaeaea).
-            </p>
-
-            <div class="color-palette">
-              <div class="color-swatch swatch-dark-bg">
-                <span class="hex">#0E1225</span>
-                <span class="name">Fond</span>
-              </div>
-              <div class="color-swatch swatch-dark-card">
-                <span class="hex">#2C2C3A</span>
-                <span class="name">Cartes</span>
-              </div>
-              <div class="color-swatch swatch-purple">
-                <span class="hex">#6C5CE7</span>
-                <span class="name">Titres</span>
-              </div>
-              <div class="color-swatch swatch-text">
-                <span class="hex">#EAEAEA</span>
-                <span class="name">Texte</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="da-block da-spacing">
-            <h3>Mode Clair</h3>
-            <p>
-              Le mode clair utilise un dégradé de violets et deux teintes de
-              jaune pour le contraste et les interactions.
+              L'interface repose sur la clarté de Bootstrap combinée à une
+              touche personnalisée pour les zones d'interaction.
             </p>
             <div class="color-palette">
-              <div class="color-swatch swatch-purple">
+              <div class="color-swatch swatch-bootstrap">
+                <span class="hex">#7952B3</span>
+                <span class="name">Bootstrap JS</span>
+              </div>
+              <div class="color-swatch swatch-canvas">
+                <span class="hex">#F8F9FA</span>
+                <span class="name">Canvas</span>
+              </div>
+              <div class="color-swatch swatch-ui-accent">
                 <span class="hex">#6C5CE7</span>
-                <span class="name">Primaire</span>
-              </div>
-              <div class="color-swatch swatch-light-purple">
-                <span class="hex">#6D76CE</span>
-                <span class="name">Secondaire</span>
-              </div>
-              <div class="color-swatch swatch-yellow">
-                <span class="hex">#F1C40F</span>
-                <span class="name">Accent</span>
-              </div>
-              <div class="color-swatch swatch-dark-yellow">
-                <span class="hex">#F39C12</span>
-                <span class="name">Hover</span>
+                <span class="name">UI Accent</span>
               </div>
             </div>
-          </div>
-
-          <div class="da-block da-spacing">
-            <h3>Disposition & Structure</h3>
-            <p>
-              L'interface joue sur des cartes blanches (ou sombres selon le
-              thème) posées sur un fond neutre pour créer de la profondeur. La
-              mise en page utilise abondamment Flexbox et CSS Grid pour une
-              structure modulaire.
-            </p>
           </div>
         </div>
       </section>
 
-      <section id="avancée" class="detail-section">
+      <section class="detail-section">
         <div class="content-card full-width">
-          <h2>Avancée du projet</h2>
-          <p>Voici un aperçu de l'interface actuelle (v1.0) :</p>
+          <h2>Aperçu de l'interface</h2>
+          <p>Voici un aperçu de l'outil en action :</p>
 
           <div class="project-gallery">
             <div class="gallery-item">
               <img
-                src="assets/portfolio-preview.png"
-                alt="Aperçu du portfolio 1"
+                src="../../assets/maquette-main.png"
+                alt="Interface principale de l'outil"
                 loading="lazy"
                 onerror="
                   this.src =
-                    'https://placehold.co/600x400/6c5ce7/ffffff?text=Portfolio+V1'
+                    'https://placehold.co/600x400/6c5ce7/ffffff?text=Interface+Maquettage'
                 " />
             </div>
             <div class="gallery-item">
               <img
-                src="assets/portfolio-preview.png"
-                alt="Aperçu du portfolio 2"
+                src="../../assets/maquette-grid.png"
+                alt="Gestion de la grille Bootstrap"
                 loading="lazy"
                 onerror="
                   this.src =
-                    'https://placehold.co/600x400/2c2c3a/ffffff?text=Mode+Sombre'
+                    'https://placehold.co/600x400/7952b3/ffffff?text=Gestion+Grille+Bootstrap'
                 " />
             </div>
             <div class="gallery-item">
               <img
-                src="assets/portfolio-preview.png"
-                alt="Aperçu du portfolio 3"
+                src="../../assets/maquette-edit.png"
+                alt="Menu d'édition des propriétés"
                 loading="lazy"
                 onerror="
                   this.src =
-                    'https://placehold.co/600x400/f5f6fa/2f3640?text=Mode+Clair'
+                    'https://placehold.co/600x400/f8f9fa/212529?text=Edition+Proprietes'
                 " />
             </div>
           </div>
@@ -330,7 +313,7 @@
     <footer>
       <p>© 2025 Louka — Tous droits réservés</p>
       <p class="footer-legal">
-        <a href="mentions-legales.html">Mentions Légales</a>
+        <a href="../../mentions-legales/">Mentions Légales</a>
       </p>
       <section class="Socialmedia">
         <a

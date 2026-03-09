@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projet Bot Discord — Louka</title>
+    <title>Projet Pokédex — Louka</title>
 
     <meta
       name="description"
-      content="Développement d'un Bot Discord en Python (Discord.py) pour la gestion scolaire : rappels de devoirs, tâches asynchrones et hébergement VPS." />
+      content="Exercice d'intégration web : reproduction d'un Pokédex uniquement en HTML5 et CSS3. Focus sur la structure sémantique et le respect du design system sans JavaScript." />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,25 +26,27 @@
       }
     </script>
 
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" href="assets/logo_onglets.png" />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="icon" type="image/png" href="../../assets/logo_onglets.png" />
 
-    <link rel="canonical" href="https://www.louka-avenia.me/project_bot.html" />
+    <link
+      rel="canonical"
+      href="https://www.louka-avenia.me/projets/pokedex/" />
     <meta
       property="og:url"
-      content="https://www.louka-avenia.me/project_bot.html" />
+      content="https://www.louka-avenia.me/projets/pokedex/" />
     <meta
       property="og:image"
       content="https://www.louka-avenia.me/assets/moi.jpg" />
 
-    <script src="main.js" defer></script>
+    <script src="../../main.js" defer></script>
   </head>
   <body>
     <header>
       <nav class="navbar">
         <div class="logo logo-container">
-          <a href="index.html">
-            <img src="assets/logo.png" alt="Logo Louka" class="logo-img" />
+          <a href="../../index.html">
+            <img src="../../assets/logo.png" alt="Logo Louka" class="logo-img" />
           </a>
         </div>
 
@@ -66,10 +68,10 @@
         </div>
 
         <ul class="nav-links" id="nav-links">
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="index.html#projects">Projets</a></li>
-          <li><a href="index.html#skills">Compétences</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="../../index.html">Accueil</a></li>
+          <li><a href="../../index.html#projects">Projets</a></li>
+          <li><a href="../../index.html#skills">Compétences</a></li>
+          <li><a href="../../index.html#contact">Contact</a></li>
         </ul>
 
         <label class="toggle">
@@ -108,13 +110,13 @@
       </nav>
 
       <section class="hero-project">
-        <h1>Bot Discord <span>Scolaire</span></h1>
-        <p>Automatisation Python & Gestion de tâches asynchrones</p>
+        <h1>Projet <span>Pokédex</span></h1>
+        <p>Intégration pure : Structure et Design HTML/CSS</p>
 
         <div class="hero-actions">
-          <a href="index.html#projects" class="btn">Voir les autres projets</a>
+          <a href="../../index.html#projects" class="btn">Retour aux projets</a>
           <a
-            href="https://github.com/Faonpingoin634/Bot-Discord"
+            href="https://github.com/Faonpingoin634/pokedex"
             target="_blank"
             class="btn btn-github">
             Voir sur GitHub
@@ -126,52 +128,42 @@
     <main class="portfolio-main">
       <section id="contexte" class="detail-section">
         <div class="content-card full-width">
-          <h2>Le Contexte</h2>
+          <h2>Le Contexte (Archives)</h2>
           <p>
-            Pour faciliter l'organisation de ma classe, j'ai développé un bot
-            Discord collaboratif surnommé "Michel". Le problème initial était
-            simple : les informations sur les devoirs étaient dispersées et
-            souvent oubliées.
+            Ce projet est l'un de mes premiers exercices d'intégration. Ici, pas
+            de script complexe ni d'appels API : l'objectif était purement
+            <strong>visuel et structurel</strong>.
           </p>
           <p>
-            Ce projet m'a permis de travailler sur l'hébergement continu (24/7)
-            via <strong>Discloud</strong> et d'approfondir ma gestion des dates
-            et des tâches planifiées (Background Tasks) en Python. Le bot permet
-            à n'importe quel élève d'ajouter un devoir, notifie automatiquement
-            la classe à l'approche de l'échéance, et fait le ménage tout seul.
+            Le but était de créer une interface de Pokédex en utilisant
+            uniquement du <strong>HTML et du CSS</strong>. C'est un "vieux code"
+            que je garde pour montrer mes bases en matière de positionnement
+            d'éléments et de respect d'une maquette visuelle.
           </p>
         </div>
       </section>
 
-      <section id="features" class="detail-section row-layout">
-        <div class="content-card half-width">
-          <h2>Fonctionnalités Développées</h2>
-          <ul class="styled-list">
+      <section class="detail-section row-layout">
+        <div class="content-card half-width" id="focus">
+          <h2>Les défis de l'intégration</h2>
+          <p>
+            Sans JavaScript pour générer le contenu dynamiquement, tout le
+            challenge résidait dans l'écriture d'un code HTML propre et d'un CSS
+            efficace.
+          </p>
+          <ul class="styled-list pokedex-list-margin">
             <li>
-              <strong>Système de Rappels Auto :</strong> Une boucle asynchrone
-              (<code>tasks.loop</code>) vérifie chaque heure si un devoir arrive
-              à échéance (J-7 et J-1) et envoie une alerte.
+              <strong>Structure HTML :</strong> Organisation sémantique des
+              cartes Pokémon.
             </li>
             <li>
-              <strong>Nettoyage Automatique :</strong> Le bot supprime tout seul
-              de la base de données les devoirs dont la date est passée (J+1)
-              pour garder la liste propre.
+              <strong>Positionnement CSS :</strong> Utilisation des propriétés
+              de base (marges, padding, display block/inline) pour aligner les
+              images et les textes.
             </li>
             <li>
-              <strong>Commandes Slash :</strong> Utilisation de
-              <code>app_commands</code> pour une interface moderne
-              (<code>/ajouter</code>, <code>/devoir</code>,
-              <code>/supprimer</code>).
-            </li>
-            <li>
-              <strong>Persistance JSON :</strong> Sauvegarde locale des devoirs
-              pour éviter la perte de données en cas de redémarrage du bot.
-            </li>
-            <li>
-              <strong>Gestion Temporelle :</strong> Utilisation de la librairie
-              <code>pytz</code>
-              pour gérer le fuseau horaire de Paris et éviter les décalages
-              d'heures.
+              <strong>Design System :</strong> Gestion des couleurs spécifiques
+              pour chaque "type" de Pokémon directement dans le CSS.
             </li>
           </ul>
         </div>
@@ -182,120 +174,32 @@
             <li>
               <img
                 class="tech-icon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
-                alt="Python" />
-              <span>Python : Langage principal</span>
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                alt="HTML5" />
+              <span>HTML5 : Squelette</span>
             </li>
             <li>
               <img
                 class="tech-icon"
-                src="https://upload.wikimedia.org/wikipedia/fr/4/4f/Discord_Logo_sans_texte.svg"
-                alt="Discord.py" />
-              <span>Discord.py : API Wrapper</span>
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+                alt="CSS3" />
+              <span>CSS3 : Mise en forme</span>
             </li>
             <li>
               <img
                 class="tech-icon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/json/json-original.svg"
-                alt="JSON" />
-              <span>JSON : Base de données fichier</span>
-            </li>
-            <li>
-              <svg
-                class="tech-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#6c5ce7"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
-              </svg>
-              <span>Discloud : Hébergement VPS</span>
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+                alt="Git" />
+              <span>Git : Archivage</span>
             </li>
           </ul>
         </div>
       </section>
 
-      <section id="defis" class="detail-section">
+      <section class="detail-section">
         <div class="content-card full-width">
-          <h2>Les Défis Techniques</h2>
-          <p>
-            <strong>Boucles Asynchrones :</strong> J'ai dû implémenter
-            <code>@tasks.loop(hours=1)</code>
-            pour créer un processus d'arrière-plan qui surveille les dates sans
-            bloquer les commandes du bot. C'était essentiel pour que le bot
-            reste réactif tout en faisant ses vérifications.
-          </p>
-          <p>
-            <strong>Synchronisation des Commandes :</strong> Le passage aux
-            "Slash Commands" nécessite une étape de synchronisation avec l'API
-            de Discord (<code>bot.tree.sync</code>). J'ai mis en place un script
-            de démarrage qui synchronise automatiquement les commandes avec le
-            serveur de la classe au lancement.
-          </p>
-          <p>
-            <strong>Parsing de Dates :</strong> Gérer les entrées utilisateurs
-            est complexe. J'ai utilisé <code>datetime.strptime</code> pour
-            convertir les chaînes de caractères (ex: "20/12/2026") en objets
-            dates manipulables pour les calculs de délais.
-          </p>
-        </div>
-      </section>
-
-      <section id="avancée" class="detail-section">
-        <div class="content-card full-width">
-          <h2>Aperçu Discord</h2>
-
-          <div class="placeholder-img discord-mockup">
-            <div class="discord-msg">
-              <div class="discord-avatar user"></div>
-              <div class="discord-content">
-                <div class="discord-header">
-                  <span class="discord-username">Louka</span>
-                  <span class="discord-date">Hier à 14:30</span>
-                </div>
-                <p class="discord-text">
-                  /ajouter date:20/12/2026 description:Projet Python
-                </p>
-              </div>
-            </div>
-
-            <div class="discord-msg">
-              <div class="discord-avatar bot"></div>
-              <div class="discord-content">
-                <div class="discord-header">
-                  <span class="discord-username">Michel</span>
-                  <span class="discord-badge">BOT</span>
-                  <span class="discord-date">Hier à 14:30</span>
-                </div>
-                <p class="discord-text">
-                  ✅ Devoir ajouté pour le <strong>20/12/2026</strong> : Projet
-                  Python
-                </p>
-              </div>
-            </div>
-
-            <div class="discord-divider"></div>
-
-            <div class="discord-msg">
-              <div class="discord-avatar bot"></div>
-              <div class="discord-content">
-                <div class="discord-header">
-                  <span class="discord-username">Michel</span>
-                  <span class="discord-badge">BOT</span>
-                  <span class="discord-date">Aujourd'hui à 09:00</span>
-                </div>
-                <p class="discord-text">
-                  🚨 Urgent : 'Projet Python' pour DEMAIN !
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <p style="text-align: center; margin-top: 0.5rem; font-style: italic">
-            Simulation des interactions et des rappels automatiques.
-          </p>
+          <h2>Aperçu du rendu</h2>
+          <div class="placeholder-img pokedex-placeholder"></div>
         </div>
       </section>
     </main>
@@ -303,7 +207,7 @@
     <footer>
       <p>© 2025 Louka — Tous droits réservés</p>
       <p class="footer-legal">
-        <a href="mentions-legales.html">Mentions Légales</a>
+        <a href="../../mentions-legales/">Mentions Légales</a>
       </p>
       <section class="Socialmedia">
         <a
