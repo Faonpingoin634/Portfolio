@@ -8,8 +8,9 @@ class ThemeManager {
   }
 
   init() {
-    this.toggle.checked =
-      document.documentElement.classList.contains("dark-mode");
+    const isDark = document.documentElement.classList.contains("dark-mode");
+    this.toggle.checked = isDark;
+    this.toggle.setAttribute("aria-checked", String(isDark));
     this.toggle.addEventListener("change", () => this.toggleTheme());
   }
 
@@ -17,6 +18,7 @@ class ThemeManager {
     const isDark = this.toggle.checked;
     document.documentElement.classList.toggle("dark-mode", isDark);
     localStorage.setItem("theme", isDark ? "dark" : "light");
+    this.toggle.setAttribute("aria-checked", String(isDark));
   }
 }
 
@@ -36,16 +38,37 @@ class NavigationManager {
     this.navLinks.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => this.closeMenu());
     });
+
+    document.addEventListener("click", (e) => {
+      if (
+        this.navLinks.classList.contains("mobile-menu") &&
+        !this.navLinks.contains(e.target) &&
+        !this.burgerMenu.contains(e.target)
+      ) {
+        this.closeMenu();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) this.closeMenu();
+    });
   }
 
   toggleMenu() {
-    this.navLinks.classList.toggle("mobile-menu");
-    document.body.classList.toggle("no-scroll");
+    const isOpen = this.navLinks.classList.toggle("mobile-menu");
+    document.body.classList.toggle("no-scroll", isOpen);
+    this.burgerMenu.setAttribute("aria-expanded", String(isOpen));
+    this.burgerMenu.setAttribute(
+      "aria-label",
+      isOpen ? "Fermer le menu de navigation" : "Ouvrir le menu de navigation",
+    );
   }
 
   closeMenu() {
     this.navLinks.classList.remove("mobile-menu");
     document.body.classList.remove("no-scroll");
+    this.burgerMenu.setAttribute("aria-expanded", "false");
+    this.burgerMenu.setAttribute("aria-label", "Ouvrir le menu de navigation");
   }
 }
 
@@ -105,15 +128,18 @@ class ContactForm {
     this.form = document.getElementById(formId);
     this.emailInput = document.getElementById(emailId);
     this.status = document.getElementById(statusId);
+    this.submitBtn = this.form?.querySelector('[type="submit"]');
 
     if (this.form && this.status) this.init();
   }
 
   init() {
     if (this.emailInput) {
-      this.emailInput.addEventListener("input", (e) =>
-        this.validateEmail(e.target),
-      );
+      let debounceTimer;
+      this.emailInput.addEventListener("input", (e) => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => this.validateEmail(e.target), 300);
+      });
     }
     this.form.addEventListener("submit", (e) => this.handleSubmit(e));
   }
@@ -130,6 +156,7 @@ class ContactForm {
     event.preventDefault();
     const data = new FormData(this.form);
 
+    this.setSubmitting(true);
     this.updateStatus("Envoi en cours...", "loading");
 
     try {
@@ -152,7 +179,15 @@ class ContactForm {
       }
     } catch (error) {
       this.updateStatus("Oups ! Il y a eu un problème réseau.", "error");
+    } finally {
+      this.setSubmitting(false);
     }
+  }
+
+  setSubmitting(isSubmitting) {
+    if (!this.submitBtn) return;
+    this.submitBtn.disabled = isSubmitting;
+    this.submitBtn.textContent = isSubmitting ? "Envoi en cours..." : "Envoyer";
   }
 
   updateStatus(message, type) {
@@ -217,6 +252,10 @@ class LightboxManager {
   }
 
   init() {
+    this.lightbox.setAttribute("role", "dialog");
+    this.lightbox.setAttribute("aria-modal", "true");
+    this.lightbox.setAttribute("aria-label", "Image en grand");
+
     this.images.forEach((img) => {
       img.style.cursor = "zoom-in";
       img.addEventListener("click", (e) => this.open(e, img));
@@ -228,26 +267,34 @@ class LightboxManager {
       if (e.target === this.lightbox) this.close();
     });
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && this.lightbox.classList.contains("active")) {
+    this._onKeyDown = (e) => {
+      if (!this.lightbox.classList.contains("active")) return;
+      if (e.key === "Escape") {
         this.close();
+      } else if (e.key === "Tab") {
+        e.preventDefault();
+        this.closeBtn?.focus();
       }
-    });
+    };
+    document.addEventListener("keydown", this._onKeyDown);
   }
 
   open(event, imgElement) {
     event.stopPropagation();
     event.preventDefault();
 
-    this.lightboxImg.src = imgElement.src;
+    this._triggerElement = document.activeElement;
+    this.lightboxImg.src = imgElement.currentSrc || imgElement.src;
     this.lightboxImg.alt = imgElement.alt || "Image en grand";
     this.lightbox.classList.add("active");
     document.body.classList.add("no-scroll");
+    this.closeBtn?.focus();
   }
 
   close() {
     this.lightbox.classList.remove("active");
     document.body.classList.remove("no-scroll");
+    this._triggerElement?.focus();
   }
 }
 
@@ -263,7 +310,7 @@ class App {
     new ProjectFilter(".filter-btn", ".project-card", ".project-grid");
     new ContactForm("my-form", "email", "my-form-status");
     new ScrollObserver(
-      ".stagger-list, .project-grid, .cards-container",
+      ".stagger-list, .project-grid, .cards-container, .timeline",
       ".reveal",
     );
     new LightboxManager(

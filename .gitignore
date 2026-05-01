@@ -1,0 +1,14 @@
+# Outils de développement
+node_modules/
+.next/
+dist/
+build/
+
+# Fichiers Claude
+ROADMAP.md
+.claudeignore
+
+# Système
+.DS_Store
+Thumbs.db
+*.log

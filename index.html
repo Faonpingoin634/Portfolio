@@ -15,13 +15,32 @@
     <meta
       property="og:description"
       content="Découvrez mes projets et compétences en développement web." />
-    <meta property="og:image" content="assets/moi.jpg" />
-    <meta property="og:url" content="https://www.louka-avenia.me" />
+    <meta
+      property="og:image"
+      content="https://www.louka-avenia.me/assets/moi.webp" />
+    <meta property="og:url" content="https://www.louka-avenia.me/" />
+    <meta property="og:type" content="website" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Louka Avenia",
+        "url": "https://www.louka-avenia.me",
+        "image": "https://www.louka-avenia.me/assets/moi.webp",
+        "jobTitle": "Développeur Web Full-Stack & Freelance",
+        "description": "Développeur web full-stack en formation et freelance. Spécialisé en React, Python, PHP et création de sites web sur mesure.",
+        "sameAs": [
+          "https://www.linkedin.com/in/louka-avenia/",
+          "https://github.com/Faonpingoin634"
+        ]
+      }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
       rel="stylesheet" />
 
     <script>
@@ -36,23 +55,29 @@
     </script>
 
     <link rel="stylesheet" href="style.css" />
-    <link rel="canonical" href="https://www.louka-avenia.me" />
-    <link rel="icon" type="image/png" href="assets/logo_onglets.png" />
-    <script src="main.js" defer></script>
+    <link rel="canonical" href="https://www.louka-avenia.me/" />
+    <link rel="icon" type="image/webp" href="assets/logo_onglets.webp" />
+    <script src="main.min.js" defer></script>
     <meta
       name="google-site-verification"
       content="fw4is7FLBwsCOA7eXsttE8Hta0wxTaeNYNV28-ODKlE" />
   </head>
   <body>
+    <a href="#main" class="skip-link">Aller au contenu principal</a>
     <header>
-      <nav class="navbar">
+      <nav class="navbar" aria-label="Navigation principale">
         <div class="logo logo-container">
           <a href="/">
-            <img src="assets/logo.png" alt="Logo Louka" class="logo-img" />
+            <img src="assets/logo.webp" alt="Logo Louka" class="logo-img" />
           </a>
         </div>
 
-        <div class="burger-menu" id="burger-menu">
+        <button
+          class="burger-menu"
+          id="burger-menu"
+          aria-label="Ouvrir le menu de navigation"
+          aria-expanded="false"
+          aria-controls="nav-links">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="30"
@@ -67,7 +92,7 @@
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
-        </div>
+        </button>
 
         <ul class="nav-links" id="nav-links">
           <li><a href="#about">À propos</a></li>
@@ -77,7 +102,7 @@
         </ul>
 
         <label class="toggle">
-          <input type="checkbox" id="theme-toggle" />
+          <input type="checkbox" id="theme-toggle" role="switch" aria-label="Activer le mode sombre" />
           <span class="slider">
             <svg
               class="icon sun"
@@ -119,6 +144,7 @@
           <a
             href="assets/CV Louka AVENIA Alternance.pdf"
             target="_blank"
+            rel="noopener noreferrer"
             class="btn btn-outline">
             Mon CV
           </a>
@@ -126,7 +152,7 @@
       </section>
     </header>
 
-    <main>
+    <main id="main">
       <section id="about" class="about">
         <div class="desc">
           <h2>À propos</h2>
@@ -149,6 +175,72 @@
         <div class="picture"></div>
       </section>
 
+      <section id="parcours" class="parcours">
+        <h2>Mon Parcours</h2>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">Avril — Août 2026 · <strong>En cours</strong></span>
+              <h3>Développeur WordPress — Transatel</h3>
+              <p>
+                Stage : maintenance technique, mise à jour des contenus
+                digitaux, gestion et création de thèmes et plugins.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2025 — 2027</span>
+              <h3>Bachelor 2 & 3 Développement Web — Decode</h3>
+              <p>Spécialisation développement web full-stack.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">Juillet — Août 2025</span>
+              <h3>Développeur — European Homes</h3>
+              <p>
+                Gestion et développement d'API en C#, automatisation de
+                workflows avec Power Automate.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2024 — 2025</span>
+              <h3>Bachelor 1 Chef de Projets Digitaux — EEMI Paris</h3>
+              <p>
+                Gestion de projet digital, développement web full-stack et
+                marketing digital.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2023 — 2024</span>
+              <h3>Licence 1 Biologie Ingénieur — CY Cergy Paris Université</h3>
+              <p>
+                Première année universitaire scientifique avant réorientation
+                vers le développement web.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2022</span>
+              <h3>Baccalauréat général — Lycée Charles de Gaulle, Poissy</h3>
+              <p>Spécialités SVT, Mathématiques, Physique-Chimie.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="news" class="news">
         <h2>Mes 3 Derniers Projets</h2>
         <div class="cards-container">
@@ -158,13 +250,16 @@
               Un site vitrine moderne pour présenter mes compétences et mes
               réalisations.
             </p>
-            <img
-              class="logo_portfolio"
-              src="assets/logo.png"
-              alt="logo_portfolio"
-              width="200"
-              height="150"
-              loading="lazy" />
+            <picture>
+              <source srcset="assets/logo.webp" type="image/webp" />
+              <img
+                class="logo_portfolio"
+                src="assets/logo.webp"
+                alt="logo_portfolio"
+                width="200"
+                height="150"
+                loading="lazy" />
+            </picture>
             <div class="more">
               <a href="projets/portfolio/">
                 <p>En savoir plus</p>
@@ -216,7 +311,7 @@
             <p>Un site vitrine, pour la création d'un café local.</p>
             <img
               class="logo_atelier"
-              src="assets/projet/L'atelier_de_la_fève_logo.png"
+              src="assets/projet/L'atelier_de_la_fève_logo.webp"
               alt="L'atelier de la fève logo"
               width="200"
               height="150"
@@ -292,7 +387,7 @@
             <h3>Shifumi en PHP</h3>
             <p>
               Un projet de shifumi hébergé sur un serveur local qui gère des
-              fichiers JSON pour le cash et l'historique.
+              fichiers JSON pour le cache et l'historique.
             </p>
           </a>
           <a
@@ -407,17 +502,17 @@
           </div>
 
           <button type="submit" class="btn" id="my-form-button">Envoyer</button>
-          <p id="my-form-status"></p>
+          <p id="my-form-status" aria-live="polite" aria-atomic="true"></p>
         </form>
       </section>
     </main>
 
     <footer>
-      <p>© 2025 Louka — Tous droits réservés</p>
+      <p>© 2026 Louka — Tous droits réservés</p>
       <p class="footer-legal">
         <a href="mentions-legales/">Mentions Légales</a>
       </p>
-      <section class="Socialmedia">
+      <nav class="Socialmedia" aria-label="Réseaux sociaux">
         <a
           href="https://www.linkedin.com/in/louka-avenia/"
           target="_blank"
@@ -444,7 +539,7 @@
           </svg>
         </a>
         <a
-          href="https://github.com/Faonpingoin634?tab=overview&from=2025-11-01&to=2025-11-06"
+          href="https://github.com/Faonpingoin634"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Voir mon profil GitHub">
@@ -483,7 +578,7 @@
               d="M41,4H9C6.243,4,4,6.243,4,9v32c0,2.757,2.243,5,5,5h32c2.757,0,5-2.243,5-5V9C46,6.243,43.757,4,41,4z M37.006,22.323 c-0.227,0.021-0.457,0.035-0.69,0.035c-2.623,0-4.928-1.349-6.269-3.388c0,5.349,0,11.435,0,11.537c0,4.709-3.818,8.527-8.527,8.527 s-8.527-3.818-8.527-8.527s3.818-8.527,8.527-8.527c0.178,0,0.352,0.016,0.527,0.027v4.202c-0.175-0.021-0.347-0.053-0.527-0.053 c-2.404,0-4.352,1.948-4.352,4.352s1.948,4.352,4.352,4.352s4.527-1.894,4.527-4.298c0-0.095,0.042-19.594,0.042-19.594h4.016 c0.378,3.591,3.277,6.425,6.901,6.685V22.323z"></path>
           </svg>
         </a>
-      </section>
+      </nav>
     </footer>
   </body>
 </html>

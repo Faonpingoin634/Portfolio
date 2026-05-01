@@ -11,8 +11,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
       rel="stylesheet" />
 
     <script>
@@ -27,30 +28,50 @@
     </script>
 
     <link rel="stylesheet" href="../../style.css" />
-    <link rel="icon" type="image/png" href="../../assets/logo_onglets.png" />
+    <link rel="icon" type="image/webp" href="../../assets/logo_onglets.webp" />
 
     <link
       rel="canonical"
       href="https://www.louka-avenia.me/projets/portfolio/" />
+    <meta property="og:title" content="Projet Portfolio — Louka Avenia" />
+    <meta property="og:description" content="Portfolio personnel développé en HTML, CSS et JavaScript vanilla. Dark mode et animations." />
+    <meta property="og:type" content="website" />
     <meta
       property="og:url"
       content="https://www.louka-avenia.me/projets/portfolio/" />
     <meta
       property="og:image"
-      content="https://www.louka-avenia.me/assets/moi.jpg" />
+      content="https://www.louka-avenia.me/assets/moi.webp" />
 
-    <script src="../../main.js" defer></script>
+    <script src="../../main.min.js" defer></script>
+  
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Portfolio Web",
+  "description": "Site vitrine moderne pour présenter mes compétences et réalisations. Développé en HTML, CSS et JavaScript vanilla avec architecture orientée objet.",
+  "url": "https://www.louka-avenia.me/projets/portfolio/",
+  "author": {
+    "@type": "Person",
+    "name": "Louka Avenia",
+    "url": "https://www.louka-avenia.me"
+  },
+  "keywords": "HTML, CSS, JavaScript"
+}
+    </script>
   </head>
   <body>
+    <a href="#main" class="skip-link">Aller au contenu principal</a>
     <header>
-      <nav class="navbar">
+      <nav class="navbar" aria-label="Navigation principale">
         <div class="logo logo-container">
           <a href="../../">
-            <img src="../../assets/logo.png" alt="Logo Louka" class="logo-img" />
+            <img src="../../assets/logo.webp" alt="Logo Louka" class="logo-img" />
           </a>
         </div>
 
-        <div class="burger-menu" id="burger-menu">
+        <button class="burger-menu" id="burger-menu" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="nav-links">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="30"
@@ -65,8 +86,7 @@
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
-        </div>
-
+        </button>
         <ul class="nav-links" id="nav-links">
           <li><a href="../../">Accueil</a></li>
           <li><a href="../../#projects">Projets</a></li>
@@ -75,7 +95,7 @@
         </ul>
 
         <label class="toggle">
-          <input type="checkbox" id="theme-toggle" />
+          <input type="checkbox" id="theme-toggle" role="switch" aria-label="Activer le mode sombre" />
           <span class="slider">
             <svg
               class="icon sun"
@@ -118,6 +138,7 @@
           <a
             href="https://github.com/Faonpingoin634/Portfolio"
             target="_blank"
+            rel="noopener noreferrer"
             class="btn btn-github">
             Voir le code sur GitHub
           </a>
@@ -125,7 +146,7 @@
       </section>
     </header>
 
-    <main class="portfolio-main">
+    <main id="main" class="portfolio-main">
       <section id="contexte" class="detail-section">
         <div class="content-card full-width">
           <h2>Le Contexte</h2>
@@ -166,28 +187,28 @@
               <img
                 class="tech-icon"
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
-                alt="HTML5" />
+                alt="HTML5"  loading="lazy"/>
               <span>HTML5 : Structure sémantique</span>
             </li>
             <li>
               <img
                 class="tech-icon"
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
-                alt="CSS3" />
+                alt="CSS3"  loading="lazy"/>
               <span>CSS3 : Design & Responsive</span>
             </li>
             <li>
               <img
                 class="tech-icon"
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
-                alt="JavaScript" />
+                alt="JavaScript"  loading="lazy"/>
               <span>JavaScript : Interactions</span>
             </li>
             <li>
               <img
                 class="tech-icon"
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
-                alt="Git" />
+                alt="Git"  loading="lazy"/>
               <span>Git & GitHub : Versionning</span>
             </li>
           </ul>
@@ -294,7 +315,7 @@
           <div class="project-gallery">
             <div class="gallery-item">
               <img
-                src="../../assets/portfolio-preview.png"
+                src="../../assets/portfolio-preview.webp"
                 alt="Aperçu du portfolio 1"
                 loading="lazy"
                 onerror="
@@ -304,7 +325,7 @@
             </div>
             <div class="gallery-item">
               <img
-                src="../../assets/portfolio-preview.png"
+                src="../../assets/portfolio-preview.webp"
                 alt="Aperçu du portfolio 2"
                 loading="lazy"
                 onerror="
@@ -314,7 +335,7 @@
             </div>
             <div class="gallery-item">
               <img
-                src="../../assets/portfolio-preview.png"
+                src="../../assets/portfolio-preview.webp"
                 alt="Aperçu du portfolio 3"
                 loading="lazy"
                 onerror="
@@ -328,11 +349,11 @@
     </main>
 
     <footer>
-      <p>© 2025 Louka — Tous droits réservés</p>
+      <p>© 2026 Louka — Tous droits réservés</p>
       <p class="footer-legal">
         <a href="../../mentions-legales/">Mentions Légales</a>
       </p>
-      <section class="Socialmedia">
+      <nav class="Socialmedia" aria-label="Réseaux sociaux">
         <a
           href="https://www.linkedin.com/in/louka-avenia/"
           target="_blank"
@@ -359,7 +380,7 @@
           </svg>
         </a>
         <a
-          href="https://github.com/Faonpingoin634?tab=overview&from=2025-11-01&to=2025-11-06"
+          href="https://github.com/Faonpingoin634"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Voir mon profil GitHub">
@@ -398,11 +419,11 @@
               d="M41,4H9C6.243,4,4,6.243,4,9v32c0,2.757,2.243,5,5,5h32c2.757,0,5-2.243,5-5V9C46,6.243,43.757,4,41,4z M37.006,22.323 c-0.227,0.021-0.457,0.035-0.69,0.035c-2.623,0-4.928-1.349-6.269-3.388c0,5.349,0,11.435,0,11.537c0,4.709-3.818,8.527-8.527,8.527 s-8.527-3.818-8.527-8.527s3.818-8.527,8.527-8.527c0.178,0,0.352,0.016,0.527,0.027v4.202c-0.175-0.021-0.347-0.053-0.527-0.053 c-2.404,0-4.352,1.948-4.352,4.352s1.948,4.352,4.352,4.352s4.527-1.894,4.527-4.298c0-0.095,0.042-19.594,0.042-19.594h4.016 c0.378,3.591,3.277,6.425,6.901,6.685V22.323z"></path>
           </svg>
         </a>
-      </section>
+      </nav>
     </footer>
 
     <div id="lightbox" class="lightbox">
-      <span class="close-lightbox">&times;</span>
+      <button class="close-lightbox" aria-label="Fermer la lightbox">&times;</button>
       <img class="lightbox-content" id="lightbox-img" alt="Vue agrandie" />
     </div>
   </body>
