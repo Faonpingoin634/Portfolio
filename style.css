@@ -991,6 +991,11 @@ html.dark-mode .portfolio-logo {
 .logo_atelier {
   max-width: 100%;
   height: auto;
+  aspect-ratio: 200 / 150;
+}
+
+.logo_portfolio {
+  aspect-ratio: 200 / 150;
 }
 
 /* --- MENTIONS LÉGALES SPECIFIC --- */
