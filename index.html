@@ -3,18 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Louka — Portfolio Full-Stack</title>
+    <title>Louka Avenia — Développeur Web Full-Stack | Alternance 2026</title>
     <meta
       name="description"
-      content="Portfolio de Louka Avenia, développeur Web Full-Stack et freelance. Découvrez mes projets en React, Python, PHP et mes services de création de sites web." />
-    <meta
-      name="keywords"
-      content="développeur web, freelance, full-stack, React, Python, PHP, création site web, Louka Avenia" />
+      content="Portfolio de Louka Avenia, développeur web full-stack en alternance et freelance. Projets React, PHP, Python, JS. Disponible en alternance dès septembre 2026." />
 
-    <meta property="og:title" content="Louka — Portfolio Full-Stack" />
+    <meta property="og:title" content="Louka Avenia — Développeur Web Full-Stack | Alternance 2026" />
     <meta
       property="og:description"
-      content="Découvrez mes projets et compétences en développement web." />
+      content="Portfolio de Louka Avenia, développeur web full-stack en alternance et freelance. Projets React, PHP, Python, JS. Disponible en alternance dès septembre 2026." />
     <meta
       property="og:image"
       content="https://www.louka-avenia.me/assets/moi.webp" />
@@ -27,8 +24,18 @@
         "name": "Louka Avenia",
         "url": "https://www.louka-avenia.me",
         "image": "https://www.louka-avenia.me/assets/moi.webp",
-        "jobTitle": "Développeur Web Full-Stack & Freelance",
-        "description": "Développeur web full-stack en formation et freelance. Spécialisé en React, Python, PHP et création de sites web sur mesure.",
+        "jobTitle": "Développeur Web Full-Stack",
+        "description": "Développeur web full-stack en alternance et freelance. Spécialisé en React, JavaScript, PHP, Python et création de sites web sur mesure.",
+        "knowsAbout": ["JavaScript", "React", "PHP", "Python", "HTML", "CSS", "Git", "MySQL", "Tailwind CSS"],
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Decode"
+        },
+        "seeks": {
+          "@type": "JobPosting",
+          "title": "Alternance Développeur Web",
+          "jobLocationType": "TELECOMMUTE"
+        },
         "sameAs": [
           "https://www.linkedin.com/in/louka-avenia/",
           "https://github.com/Faonpingoin634"
@@ -38,10 +45,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
-      rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" onload="this.rel='stylesheet'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" /></noscript>
 
     <script>
       const savedTheme = localStorage.getItem("theme");
@@ -54,7 +59,8 @@
       }
     </script>
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="style.css" /></noscript>
     <link rel="canonical" href="https://www.louka-avenia.me/" />
     <link rel="icon" type="image/webp" href="assets/logo_onglets.webp" />
     <script src="main.min.js" defer></script>
