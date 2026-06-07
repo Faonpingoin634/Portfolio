@@ -25,6 +25,14 @@
     }
   ],
   "redirects": [
-    { "source": "/wait_screen", "destination": "/", "permanent": false }
+    { "source": "/wait_screen", "destination": "/", "permanent": false },
+    { "source": "/project_pygame.html", "destination": "/projets/pygame/", "permanent": true },
+    { "source": "/project_pokedex.html", "destination": "/projets/pokedex/", "permanent": true },
+    { "source": "/project_portfolio.html", "destination": "/projets/portfolio/", "permanent": true },
+    { "source": "/project_shifumi.html", "destination": "/projets/shifumi/", "permanent": true },
+    { "source": "/project_maquette.html", "destination": "/projets/maquette/", "permanent": true },
+    { "source": "/project_bot.html", "destination": "/projets/bot-discord/", "permanent": true },
+    { "source": "/project_react_api.html", "destination": "/projets/api-react/", "permanent": true },
+    { "source": "/latelier-de-la-feve.html", "destination": "/projets/latelier-de-la-feve/", "permanent": true }
   ]
 }
