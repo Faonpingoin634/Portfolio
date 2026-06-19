@@ -72,11 +72,7 @@
 
     <script>
       const savedTheme = localStorage.getItem("theme");
-      if (
-        savedTheme === "dark" ||
-        (!savedTheme &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
+      if (savedTheme !== "light") {
         document.documentElement.classList.add("dark-mode");
       }
     </script>
@@ -210,7 +206,7 @@
           <div class="timeline-item reveal">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <span class="timeline-date">Avril — Août 2026 · <strong>En cours</strong></span>
+              <span class="timeline-date">Avril — Actuellement · <strong>En cours</strong></span>
               <h3>Développeur WordPress — Transatel</h3>
               <p>
                 Stage : maintenance technique, mise à jour des contenus
