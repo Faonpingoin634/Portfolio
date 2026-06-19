@@ -988,14 +988,25 @@ html.dark-mode .portfolio-logo {
   color: #fff;
 }
 
+.card picture {
+  display: flex;
+  justify-content: center;
+}
+
 .logo_atelier {
+  width: 9.5rem;
+  height: 9.5rem;
   max-width: 100%;
-  height: auto;
-  aspect-ratio: 200 / 150;
+  object-fit: contain;
 }
 
 .logo_portfolio {
-  aspect-ratio: 200 / 150;
+  width: 7.5rem;
+  height: 7.5rem;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 1.5rem auto;
 }
 
 /* --- MENTIONS LÉGALES SPECIFIC --- */

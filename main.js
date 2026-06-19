@@ -90,6 +90,12 @@ class ProjectFilter {
       btn.addEventListener("click", (e) =>
         this.filterProjects(e.currentTarget),
       );
+      btn.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          this.filterProjects(e.currentTarget);
+        }
+      });
     });
   }
 
@@ -102,8 +108,11 @@ class ProjectFilter {
   }
 
   filterProjects(clickedBtn) {
-    document.querySelector(".filter-btn.active")?.classList.remove("active");
+    const previous = document.querySelector(".filter-btn.active");
+    previous?.classList.remove("active");
+    previous?.setAttribute("aria-pressed", "false");
     clickedBtn.classList.add("active");
+    clickedBtn.setAttribute("aria-pressed", "true");
 
     const filterValue = clickedBtn.dataset.filter;
     let visibleCount = 0;
